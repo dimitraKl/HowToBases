@@ -12,7 +12,7 @@ public class Delete {
 
 		 ArrayList<String> newList = givenList;
 
-         return newList;
+         return newList ;
          
          /* First try for the deletion class were an  array list of string type as well as an object are being used */
          /* No use of Maven till we sort it out team!!! */
