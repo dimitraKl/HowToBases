@@ -14,7 +14,7 @@ public class Delete {
 
          return newList;
          
-         /* Second try for the deletion class were an  array list of string type as well as an integer are being used */
+         /* Second try for the deletion class were an  array list of string type as well as an integer are being used, */
          
 	}
 
