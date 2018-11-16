@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Add {
 	
-	private String [] elements; //Instance variavbles for each element
+	private String [] elements; //Instance variables for each element
 	
 	public void setElements(String input, int i) {
 		
