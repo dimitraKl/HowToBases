@@ -30,9 +30,9 @@ public class Delete {
 		return givenList;
 	}
     
-    public ArrayList<Object> deleteList(ArrayList<Object> givenList) {
+    public ArrayList<Object> deleteTable(ArrayList<Object> givenList) {
     	
-    	 System.out.println("You have chosen to delete the entire database. Are you sure you want to proceed with the deletion? Please type 'Yes' or 'No'.  ");
+    	 System.out.println("You have chosen to delete this table. Are you sure you want to proceed with the deletion? Please type 'Yes' or 'No'.  ");
     	 
     	 Scanner sc = new Scanner(System.in);
 		 String choice = sc.nextLine();

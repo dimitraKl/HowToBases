@@ -25,42 +25,45 @@ public class Menu {
 		//return counter;
 	//}
 
-	public void menu(String [] categoriesNames) { //take catNames as a parameter so that it can be
-		                                   //tranfered to other methods and classes 
-		
-	    System.out.println("Press 1 to add an element to your data base. /n"
+	public static int tablesMenu(ArrayList<Object> tables) {
+
+		System.out.println("--- TABLES MENU ---");
+		System.out.println("Press 1 to create a new table in your data base. /n"
+	    		         + "Press 2 to delete a table from your data base.");
+	    Scanner sc = new Scanner(System.in);
+	    int choice;
+
+	    //Make sure choice is 1 or 2.
+	    do {
+	        choice = sc.nextInt();
+	        if (choice < 1 || choice > 2 ) {
+	        	System.out.println("Please insert 1 or 2.");
+	        }
+	    } while (choice < 1 || choice > 3);
+
+	    return choice;
+
+	}
+
+	public static int functionsMenu() {
+
+		System.out.println("--- FUNCTIONS MENU ---");
+		System.out.println("Press 1 to add an element to your data base. /n"
 	    		         + "Press 2 to delete an element from your data base. /n"
 	    		         + "Press 3 to edit an element in your data base.");
 	    Scanner sc = new Scanner(System.in);
 	    int choice;
-	    
+
 	    //Make sure choice is 1, 2 or 3.
 	    do {
 	        choice = sc.nextInt();
 	        if (choice < 1 || choice > 3 ) {
 	        	System.out.println("Please insert 1,2 or 3.");
 	        }
-	    }
-	    while (choice < 1 || choice > 3);
-	    
-	    //make objs for each class so that they can be called
-	    Add objAdd = new Add();
-	    Delete objDelete = new Delete();
-	    Edit objEdit = new Edit();
-	    
-	    switch (choice) {
-   
-	    case 1: objAdd.addElement(categoriesNames);
-	            break;
-       
-	    case 2: objDelete.deleteElement();
-	            break;
+	    } while (choice < 1 || choice > 3);
 
-	    case 3: objEdit.editElement();
-	            break;
-	            
-	    }//end switch
-	    
-	}//end menu method
-	
-}//end menu class
+	    return choice;
+
+	}
+
+}
