@@ -41,7 +41,7 @@ public class Menu {
 		//return counter;
 	//}
 
-	public static int tablesMenu(ArrayList<Object> tables) {
+	public static int tablesMenu() {
 
 		System.out.println("--- TABLES MENU ---");
 		System.out.println("Press 1 to create a new table in your data base. /n"

@@ -29,7 +29,7 @@ public class DataBase {
 
 	}
 
-	public void chooseFunction(int choice) {
+	public void chooseFunction() {
 
 		String[] choosenCategoriesNames;
 		System.out.println("Choose a table.\nCurrently existing tables: \n" 
@@ -41,7 +41,9 @@ public class DataBase {
 				choosenCategoriesNames = t.getCategoriesNames();
 			}
 		}
-		
+
+		int choice = Menu.functionsMenu();
+
 	    //make objects for each class so that they can be called
 	    Add objAdd = new Add();
 	    Delete objDelete = new Delete();
