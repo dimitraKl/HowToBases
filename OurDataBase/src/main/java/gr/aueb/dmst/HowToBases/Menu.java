@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /**
  * Creates a menu of choices for processing the Database
  * @author minar
- *
  */
 public class Menu {
 
