@@ -10,7 +10,7 @@ public class DataBase {
 	private String[] categoriesNames = new String[NUMBER_OF_CATEGORIES];
 
 	/**
-	 * Creation of the DataBase
+	 * Creation of the DataBase.
 	 * <p>
 	 * This method includes naming DataBases,
 	 * initializing the number of categories,
