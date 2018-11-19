@@ -41,7 +41,6 @@ public class Menu {
 		//return counter;
 	//}
 
-<<<<<<< HEAD
 	public static int tablesMenu(ArrayList<Object> tables) {
 
 		System.out.println("--- TABLES MENU ---");
@@ -53,20 +52,15 @@ public class Menu {
 	    //Make sure choice is 1 or 2.
 	    do {
 	        choice = sc.nextInt();
-	        if (choice < 1 || choice > 2 ) {
+	        if (choice != 1 || choice != 2 ) {
 	        	System.out.println("Please insert 1 or 2.");
 	        }
-	    } while (choice < 1 || choice > 3);
+	    } while (choice != 1 || choice != 2);
 
 	    return choice;
 
 	}
 
-	public static int functionsMenu() {
-
-		System.out.println("--- FUNCTIONS MENU ---");
-		System.out.println("Press 1 to add an element to your data base. /n"
-=======
 	/**
 	 * The menu of processing choices for the DataBase.
 	 * <p>
@@ -77,45 +71,26 @@ public class Menu {
 	 * Transfers the categoriesNames table to other methods or classes. 
 	 * @param categoriesNames a table with the names of the categories of the DataBase. 
 	 */
-	public void menu(String [] categoriesNames) { 
-		
-	    System.out.println("Press 1 to add an element to your data base. /n"
->>>>>>> refs/remotes/origin/master
+	public static int functionsMenu() {
+
+		System.out.println("--- FUNCTIONS MENU ---");
+		System.out.println("Press 1 to add an element to your data base. /n"
 	    		         + "Press 2 to delete an element from your data base. /n"
 	    		         + "Press 3 to edit an element in your data base.");
 	    Scanner sc = new Scanner(System.in);
 	    int choice;
-<<<<<<< HEAD
 
-	    //Make sure choice is 1, 2 or 3.
-=======
 	    /*If more choices are to be displayed we can use "choice <1 || choice >++" 
 	     * and make a try-catch block if the answer is not an integer.
 	     */
->>>>>>> refs/remotes/origin/master
+
+	    //Make sure choice is 1, 2 or 3.
 	    do {
 	        choice = sc.nextInt();
 	        if (choice != 1 || choice != 2 || choice != 3) {
 	        	System.out.println("Please insert 1,2 or 3.");
 	        }
-<<<<<<< HEAD
-	    } while (choice < 1 || choice > 3);
-=======
-	    }
-	    while (choice != 1 || choice != 2 || choice != 3);
-	    
-	    Add objAdd = new Add();
-	    Delete objDelete = new Delete();
-	    Edit objEdit = new Edit();
-	    
-	    switch (choice) {
-   
-	    case 1: objAdd.addElement(categoriesNames);
-	            break;
-       
-	    case 2: objDelete.deleteElement();
-	            break;
->>>>>>> refs/remotes/origin/master
+	    } while (choice != 1 || choice != 2 || choice != 3);
 
 	    return choice;
 
