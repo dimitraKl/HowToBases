@@ -28,39 +28,45 @@ public class DataBase {
 		tables.add(newTable);
 
 	}
+	
+	public void chooseTablesFunction() {
+		
+		int choice = Menu.tablesMenu();
+		
+		//make objects for each class so that they can be called
+	    Add objAdd = new Add();
+		Delete objDelete = new Delete();
+		Edit objEdit = new Edit();
+		    
+		switch (choice) {
+	   
+		case 1: tables = objAdd.addTable(tables);
+	            break;
+       
+	    case 2: tables = objDelete.deleteTable(tables, chooseTable());
+	            break;
 
-	public void chooseFunction() {
+	    case 3: chooseTable().chooseDataFunction();
+	            break;
+		            
+	    }
+	}
 
-		String[] choosenCategoriesNames;
+	public Table chooseTable() {
+
 		System.out.println("Choose a table.\nCurrently existing tables: \n" 
 							+ tables.toString() + "\n");
 		Scanner sc = new Scanner(System.in);
-		String choosenTable = sc.nextLine();
+		String chosenTable = sc.nextLine();
+		Table returnValue = null;
 		for(Table t : tables) {
-			if (choosenTable == t.getTableName()) {
-				choosenCategoriesNames = t.getCategoriesNames();
-			}
+			if (chosenTable == t.getTableName()) {
+				returnValue = t;
+				break;
+				//Make do while for checking !!!!!!
+			}	
 		}
-
-		int choice = Menu.functionsMenu();
-
-	    //make objects for each class so that they can be called
-	    Add objAdd = new Add();
-	    Delete objDelete = new Delete();
-	    Edit objEdit = new Edit();
-	    
-	    switch (choice) {
-   
-	    case 1: objAdd.addElement(choosenCategoriesNames);
-	            break;
-       
-	    case 2: objDelete.deleteElement();
-	            break;
-
-	    case 3: objEdit.editElement();
-	            break;
-	            
-	    }
+		return returnValue;
 
 	}
 
