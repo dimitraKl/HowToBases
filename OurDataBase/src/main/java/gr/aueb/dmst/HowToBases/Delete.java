@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Delete {
 	
-    public ArrayList<Object> deleteElement(ArrayList<Object> givenList, int givenInt) {
+    public ArrayList<Object> deleteData(ArrayList<Object> data, Object givenObject) {
 
-		 System.out.println("You have chosen to delete the element: " + givenInt + " from your database. Are you sure you want to delete it? Please type 'Yes' or 'No'. ");
+		 System.out.println("Are you sure you want to delete this element? Please type 'Yes' or 'No'. ");
 		 
 		 Scanner sc = new Scanner(System.in);
 		 String choice = sc.nextLine();
@@ -16,10 +16,14 @@ public class Delete {
 
 		 while (flag) {
 			 if (choice.equals("Yes") ) {
-			 		givenList.remove(givenInt);
+				    for (int i=0; i < data.size(); i++) {
+				    	if (givenObject == data.get(i) ) {
+				    		data.remove(i);
+				    	}
+				    }
 			 		flag = false;
 		 		} else if (choice.equals("No")) {
-		 			System.out.println("You have chosen not to delete the element " + givenInt + " from your database. ");
+		 			System.out.println("You have chosen not to delete this element. ");
 		 			flag = false;
 		 		} else {
 		    	 System.out.println("Please type 'Yes' or 'No' to continue, give your choice again. ");
@@ -27,12 +31,12 @@ public class Delete {
 		        }
 		 }
 		 		
-		return givenList;
+		return data;
 	}
     
-    public ArrayList<Object> deleteTable(ArrayList<Object> givenList) {
+    public ArrayList<Table> deleteTable(ArrayList<Table> dataBase, Table givenTable  ) {
     	
-    	 System.out.println("You have chosen to delete this table. Are you sure you want to proceed with the deletion? Please type 'Yes' or 'No'.  ");
+    	 System.out.println("You have chosen to delete the table " + givenTable.getTableName() + "Are you sure you want to proceed with the deletion? Please type 'Yes' or 'No'.  ");
     	 
     	 Scanner sc = new Scanner(System.in);
 		 String choice = sc.nextLine();
@@ -41,18 +45,23 @@ public class Delete {
 	
 		 while (flag) {
 			 if (choice.equals("Yes") ) {
-				 	givenList.clear();
+				 
+				 	for (int i=0; i < dataBase.size(); i++) {
+				 		if (givenTable == dataBase.get(i)) {
+				 			dataBase.remove(i);
+				 		}
+				 	}	
 				 	flag  = false;
 			 	} else if (choice.equals("No")) {
-			 		System.out.println("You have chosen not to proceed with the deletion: " + givenList);
+			 		System.out.println("You have chosen not to delete the table: " + givenTable.getTableName() );
 		 			flag = false;
 		 		} else {
-		    	 System.out.println("Please type 'Yes' or 'No' to give your choice again. ");
-		    	 choice = sc.nextLine();
+		 			System.out.println("Please type 'Yes' or 'No' to give your choice again. ");
+		 			choice = sc.nextLine();
 			 	}
 		 }
-		 
-    	return givenList;
+	
+    	return dataBase;
     }
 
     
