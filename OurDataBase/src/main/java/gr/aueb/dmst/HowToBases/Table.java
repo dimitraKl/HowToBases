@@ -40,15 +40,6 @@ public class Table {
 			categoriesNames[i] = sc.nextLine();
 		}
 
-		//the following 4 lines are turned into comments in case we need them in the future
-				//ArrayList<Object> data = new ArrayList<Object>(); 
-		        //int counter = 0; //counter for objects in arraylist
-		        //objMenu.setData(data);
-		        //objMenu.setCounter(0);
-
-		Menu objMenu = new Menu();
-		objMenu.menu(categoriesNames); //give catNames as a parameter since it doesn't change
-        								//and it will be needed for our prints 
 
 	}
 
