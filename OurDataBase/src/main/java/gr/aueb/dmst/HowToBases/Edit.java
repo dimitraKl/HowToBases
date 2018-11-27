@@ -45,18 +45,3 @@ public class Edit {
 		return elements;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
