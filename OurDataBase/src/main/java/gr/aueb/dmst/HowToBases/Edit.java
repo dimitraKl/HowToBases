@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Edit {
 	
-	public ArrayList<Object> editElement(ArrayList<Object> elements, int categories_number, String [] catNames) {
+	public ArrayList<Object> editData(ArrayList<Object> elements, int categories_number, String [] catNames) {
 		System.out.println("The element you wish to edit belongs to category: ");
 		int i = 0;
 		
@@ -13,7 +13,7 @@ public class Edit {
 			
 			System.out.println((i+1) + ": " + catNames[i]); // prints all the categories of the database
 			i++;
-		} while(i<categories_number);
+		} while(i < categories_number);
 		
 		System.out.println("Please insert the number of the category.");
 		Scanner input = new Scanner(System.in);
@@ -21,15 +21,9 @@ public class Edit {
 		boolean answer = true;
 		do {
 			number = input.nextInt();
-			if (number < 0 || number > categories_number) {
+			if (number < 1 || number > categories_number) {
 				answer = false;
 				System.out.println("Invalid input. Please try again.");
-				do {
-					
-					System.out.println((i+1) + ": " + catNames[i]); // prints all the categories of the database
-					i++;
-				} while(i<categories_number);
-				System.out.println("Please insert the number of the category.");
 			}
 		}while(answer == false);
 		System.out.println("Name of element you wish to change: " );
@@ -51,4 +45,3 @@ public class Edit {
 		return elements;
 	}
 }
-
