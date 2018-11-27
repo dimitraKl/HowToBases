@@ -59,7 +59,7 @@ public class Table {
 	    case 2: data = objDelete.deleteData(data);
 	            break;
 
-	    case 3: data = objEdit.editData(data);
+	    case 3: data = objEdit.editData(data, NUMBER_OF_CATEGORIES);
 	            break;
 	            
 	    case 4: Display(data);
