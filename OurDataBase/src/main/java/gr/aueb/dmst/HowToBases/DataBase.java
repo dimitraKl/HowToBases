@@ -8,16 +8,6 @@ public class DataBase {
 	private String dataBaseName;
 	private ArrayList<Table> tables = new ArrayList<Table>();
 
-
-	/**
-	 * Creation of the DataBase.
-	 * <p>
-	 * This method includes naming DataBases,
-	 * initializing the number of categories,
-	 * initializing the names of categories and puts them in categoriesNames table. All given by the user.
-	 * Creates an object of Menu class and calls menu method while passing the categoriesNames table to Menu.
-	 */
-
 	public DataBase() {
 
 		System.out.println("Welcome to your data base. How would you like to name it?");
@@ -28,45 +18,37 @@ public class DataBase {
 		tables.add(newTable);
 
 	}
-	
-	public void chooseTablesFunction() {
-		
-		int choice = Menu.tablesMenu();
-		
-		//make objects for each class so that they can be called
-	    Add objAdd = new Add();
-		Delete objDelete = new Delete();
-		Edit objEdit = new Edit();
-		    
-		switch (choice) {
-	   
-		case 1: tables = objAdd.addTable(tables);
-	            break;
-       
-	    case 2: tables = objDelete.deleteTable(tables, chooseTable());
-	            break;
 
-	    case 3: chooseTable().chooseDataFunction();
-	            break;
-		            
-	    }
-	}
+	public void chooseFunction(int choice) {
 
-	public Table chooseTable() {
-
+		String[] choosenCategoriesNames;
 		System.out.println("Choose a table.\nCurrently existing tables: \n" 
 							+ tables.toString() + "\n");
 		Scanner sc = new Scanner(System.in);
-		String chosenTable = sc.nextLine();
-		Table returnValue = null;
+		String choosenTable = sc.nextLine();
 		for(Table t : tables) {
-			if (chosenTable == t.getTableName()) {
-				returnValue = t;
-				break;
-				//Make do while for checking !!!!!!
-			}	
+			if (choosenTable == t.getTableName()) {
+				choosenCategoriesNames = t.getCategoriesNames();
+			}
 		}
-		return returnValue;
+		
+	    //make objects for each class so that they can be called
+	    Add objAdd = new Add();
+	    Delete objDelete = new Delete();
+	    Edit objEdit = new Edit();
+	    
+	    switch (choice) {
+   
+	    case 1: objAdd.addElement(choosenCategoriesNames);
+	            break;
+       
+	    case 2: objDelete.deleteElement();
+	            break;
+
+	    case 3: objEdit.editElement();
+	            break;
+	            
+	    }
 
 	}
 
