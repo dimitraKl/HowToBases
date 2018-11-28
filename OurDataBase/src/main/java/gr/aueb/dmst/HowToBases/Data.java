@@ -51,7 +51,7 @@ public class Data {
 	    case 1: dataByColumn = objEdit.editData(dataByColumn, NUMBER_OF_CATEGORIES);
 	            break;
 	            
-	    case 2: Display(dataByColumn);
+	    case 2: Display.toDisplayAll(dataByColumn);
 
 	    }
 

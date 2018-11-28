@@ -74,7 +74,7 @@ public class Table {
 	    case 3: allData = objEdit.editData(allData, NUMBER_OF_CATEGORIES);
 	            break;
 	            
-	    case 4: Display(allData);
+	    case 4: Display.toDisplayAll(allData);
 
 	    }
 
