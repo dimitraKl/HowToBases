@@ -34,13 +34,14 @@ public class DataBase {
 		int choice = Menu.tablesMenu();
 		
 		//make objects for each class so that they can be called
-	    Add objAdd = new Add();
-		Delete objDelete = new Delete();
-		Edit objEdit = new Edit();
+	    //Addition objAdd = new Addition();
+		Deletion objDelete = new Deletion();
 		    
 		switch (choice) {
 	   
-		case 1: tables = objAdd.addTable(tables);
+		case 1: //tables = objAdd.addTable(tables);
+				Table newTable = new Table();
+				tables.add(newTable);
 	            break;
        
 	    case 2: tables = objDelete.deleteTable(tables, chooseTable());
@@ -50,6 +51,7 @@ public class DataBase {
 	            break;
 		            
 	    }
+
 	}
 
 	public Table chooseTable() {
@@ -60,7 +62,7 @@ public class DataBase {
 		String chosenTable = sc.nextLine();
 		Table returnValue = null;
 		for(Table t : tables) {
-			if (chosenTable == t.getTableName()) {
+			if (chosenTable.equals(t.getTableName())) {
 				returnValue = t;
 				break;
 				//Make do while for checking !!!!!!

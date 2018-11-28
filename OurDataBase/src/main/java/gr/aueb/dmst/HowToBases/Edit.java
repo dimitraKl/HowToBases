@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Edit {
 	
-	public ArrayList<Object> editData(ArrayList<Object> elements, int categories_number, String [] catNames) {
+	public ArrayList<Data> editData(ArrayList<Data> elements, int categories_number, String [] catNames) {
 		System.out.println("The element you wish to edit belongs to category: ");
 		int i = 0;
 		

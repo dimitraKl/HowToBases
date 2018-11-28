@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Deletion {
 
-	public ArrayList<Object> deleteData(ArrayList<Object> data, Object givenObject) {
+	public ArrayList<Data> deleteData(ArrayList<Data> allData, Data givenData) {
 
 		System.out.println("Are you sure you want to delete this element? Please type 'Yes' or 'No'. ");
  
@@ -16,9 +16,10 @@ public class Deletion {
 
 		while (flag) {
 			if (choice.equals("Yes") ) {
-				for (int i=0; i < data.size(); i++) {
-					if (givenObject == data.get(i) ) {
-						data.remove(i);
+				for (Data d : allData) {
+					if (givenData.getDataByColumn()[givenData.getPrimaryKey()].equals
+							(d.getDataByColumn()[d.getPrimaryKey()])) {
+						allData.remove(d);
 				    }
 				}
 			 	flag = false;
@@ -31,7 +32,7 @@ public class Deletion {
 		 	}
 		}
  		
-		return data;
+		return allData;
 	}
 
 	public ArrayList<Table> deleteTable(ArrayList<Table> dataBase, Table givenTable  ) {
@@ -47,9 +48,9 @@ public class Deletion {
 		while (flag) {
 			if (choice.equals("Yes") ) {
 
-				for (int i=0; i < dataBase.size(); i++) {
-				 	if (givenTable == dataBase.get(i)) {
-				 		dataBase.remove(i);
+				for (Table t : dataBase) {
+				 	if (givenTable.getTableName().equals(t.getTableName())) {
+				 		dataBase.remove(t);
 				 	}
 				}	
 				flag  = false;

@@ -8,7 +8,8 @@ public class Table {
 	private String tableName;
 	private static int NUMBER_OF_CATEGORIES;
 	private String[] categoriesNames = new String[NUMBER_OF_CATEGORIES];
-    private ArrayList<Object> data = new ArrayList<Object>();
+    private ArrayList<Data> allData = new ArrayList<Data>();
+    private String primaryKeyName;
     
 	public String getTableName() {
 		return tableName;
@@ -37,9 +38,18 @@ public class Table {
 		//Fill table categoriesNames with elements
 		categoriesNames[0] = sc.nextLine();
 		for (int i = 0; i < categoriesNames.length; i++) {
-			System.out.println("Give name of category " + (i+1) + ":");
+			System.out.println("Give name of category " + (i+1) + ": ");
 			categoriesNames[i] = sc.nextLine();
+			System.out.println("\n");
 		}
+		
+		System.out.println("Choose which category you want to be used as Primary Key.");
+		primaryKeyName = sc.nextLine();
+		//make sure category exists
+		
+		Data newData = new Data(categoriesNames, primaryKeyName);
+		allData.add(newData);
+
 	}
 
 	public void chooseDataFunction() {
@@ -47,24 +57,36 @@ public class Table {
 		int choice = Menu.dataMenu();
 		
 		//make objects for each class so that they can be called
-	    Add objAdd = new Add();
-		Delete objDelete = new Delete();
+	    //Addition objAdd = new Addition();
+		Deletion objDelete = new Deletion();
 		Edit objEdit = new Edit();
 		    
 		switch (choice) {
 	   
-		case 1: data = objAdd.addData(data);
+		case 1: //allData = objAdd.addData(allData);
+				Data newData = new Data(categoriesNames, primaryKeyName);
+				allData.add(newData);
 	            break;
        
-	    case 2: data = objDelete.deleteData(data);
+	    case 2: allData = objDelete.deleteData(allData, chooseData());
 	            break;
 
-	    case 3: data = objEdit.editData(data, NUMBER_OF_CATEGORIES);
+	    case 3: allData = objEdit.editData(allData, NUMBER_OF_CATEGORIES);
 	            break;
 	            
-	    case 4: Display(data);
-		            
+	    case 4: Display(allData);
+
 	    }
+
+	}
+
+	public Data chooseData() {
+		
+		//Unfinished. Must do the same as chooseTable()
+		Data returnValue = null;
+		
+		return returnValue;
+
 	}
 
 }
