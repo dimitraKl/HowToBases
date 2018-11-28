@@ -36,7 +36,7 @@ public class DataBase {
 		//make objects for each class so that they can be called
 	    //Addition objAdd = new Addition();
 		Deletion objDelete = new Deletion();
-		    
+		
 		switch (choice) {
 	   
 		case 1: //tables = objAdd.addTable(tables);
@@ -49,6 +49,8 @@ public class DataBase {
 
 	    case 3: chooseTable().chooseDataFunction();
 	            break;
+	            
+	    case 4: Display.toDisplayAll(tables);
 		            
 	    }
 
