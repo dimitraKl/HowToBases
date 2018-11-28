@@ -61,13 +61,21 @@ public class DataBase {
 		Scanner sc = new Scanner(System.in);
 		String chosenTable = sc.nextLine();
 		Table returnValue = null;
-		for(Table t : tables) {
-			if (chosenTable.equals(t.getTableName())) {
-				returnValue = t;
-				break;
-				//Make do while for checking !!!!!!
-			}	
-		}
+		do {
+			for(Table t : tables) {
+				if (chosenTable.equals(t.getTableName())) {
+					returnValue = t;
+					break;
+				}
+			}
+			if (returnValue == null) {
+				System.out.println("The chosen table does not exist.\n"
+								 + "Please choose again.\nCurrently existing tables: \n"
+						         + " tables.toString()" + "\n");
+				chosenTable = sc.nextLine();
+			}
+		} while(returnValue == null);
+		
 		return returnValue;
 
 	}
