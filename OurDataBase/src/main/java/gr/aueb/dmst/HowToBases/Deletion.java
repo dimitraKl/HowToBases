@@ -17,8 +17,8 @@ public class Deletion {
 		while (flag) {
 			if (choice.equals("Yes") ) {
 				for (Data d : allData) {
-					if (givenData.getDataByColumn()[givenData.getPrimaryKey()].equals
-							(d.getDataByColumn()[d.getPrimaryKey()])) {
+					if (givenData.getDataByColumn()[givenData.getReferencePoint()].equals
+							(d.getDataByColumn()[d.getReferencePoint()])) {
 						allData.remove(d);
 				    }
 				}

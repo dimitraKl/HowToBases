@@ -4,15 +4,24 @@ import java.util.Scanner;
 
 public class Data {
 
-	private int primaryKey;
+	private String referencePointName;
+	private int referencePoint;
 	private String[] dataByColumn;
     
-	public int getPrimaryKey() {
-		return primaryKey;
+	public String getReferencePointName() {
+		return referencePointName;
 	}
 
-	public void setPrimaryKey(int primaryKey) {
-		this.primaryKey = primaryKey;
+	public void setReferencePointName(String referencePointName) {
+		this.referencePointName = referencePointName;
+	}
+
+	public int getReferencePoint() {
+		return referencePoint;
+	}
+
+	public void setReferencePoint(int referencePoint) {
+		this.referencePoint = referencePoint;
 	}
 
 	public String[] getDataByColumn() {
@@ -23,11 +32,12 @@ public class Data {
 		this.dataByColumn = dataByColumn;
 	}
 
-	public Data(String[] categoriesNames, String primaryKeyName) {
+	public Data(String[] categoriesNames, String referencePointName) {
 
+		this.referencePointName = referencePointName;
 		for (int i = 0; i < categoriesNames.length; i++) {
-			if (primaryKeyName.equals(categoriesNames[i])) {
-				primaryKey = i;
+			if (referencePointName.equals(categoriesNames[i])) {
+				referencePoint = i;
 			}
 		}
 
@@ -40,7 +50,7 @@ public class Data {
 			
 	}
 	
-	public void chooseFunction() {
+	public void chooseFunction(String[] categoriesNames) {
 
 		int choice = Menu.dataByColumnMenu();
 
@@ -48,12 +58,39 @@ public class Data {
 
 		switch (choice) {
 
-	    case 1: dataByColumn = objEdit.editData(dataByColumn, NUMBER_OF_CATEGORIES);
+	    case 1: dataByColumn = objEdit.editData(dataByColumn, chooseData(categoriesNames));
 	            break;
 	            
-	    case 2: Display.toDisplayAll(dataByColumn);
+	    case 2: System.out.println(this.dataByColumn[chooseData(categoriesNames)]);
+	    		break;
 
 	    }
+
+	}
+	
+	public int chooseData(String[] categoriesNames) {
+		
+		System.out.println("Choose a category.\nCurrently existing categories: \n" 
+				+ categoriesNames.toString() + "\n");
+		Scanner sc = new Scanner(System.in);
+		String chosenCategory = sc.nextLine();
+		int returnValue = -1;
+		do {
+			for(int i = 0; i < categoriesNames.length; i++) {
+				if (chosenCategory.equals(categoriesNames[i])) {
+					returnValue = i;
+					break;
+				}
+			}
+			if (returnValue == -1) {
+				System.out.println("The chosen data element does not exist.\n"
+								 + "Please choose again.\nCurrently existing data: \n"
+						         + categoriesNames.toString() + "\n");
+				chosenCategory = sc.nextLine();
+			}
+		} while(returnValue == -1);
+		
+		return returnValue;
 
 	}
 	

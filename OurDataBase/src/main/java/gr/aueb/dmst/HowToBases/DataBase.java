@@ -73,7 +73,7 @@ public class DataBase {
 			if (returnValue == null) {
 				System.out.println("The chosen table does not exist.\n"
 								 + "Please choose again.\nCurrently existing tables: \n"
-						         + " tables.toString()" + "\n");
+						         + tables.toString() + "\n");
 				chosenTable = sc.nextLine();
 			}
 		} while(returnValue == null);

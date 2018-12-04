@@ -13,12 +13,12 @@ public class Menu {
 		System.out.println("--- TABLES MENU ---");
 		System.out.println("Press 1 to create a new table in your data base. \n"
 	    		         + "Press 2 to delete a table from your data base. \n"
-				         + "Press 3 to edit a table from your data base. \n"
+				         + "Press 3 to edit a table of your data base. \n"
 	    		         + "Press 4 to display all the tables of your data base. \n");
 	    Scanner sc = new Scanner(System.in);
 	    int choice;
 
-	    //Make sure choice is 1 or 2.
+	    //Make sure choice is 1, 2, 3 or 4.
 	    do {
 	        choice = sc.nextInt();
 	        if (choice != 1 && choice != 2 && choice != 3 && choice != 4) {
@@ -55,7 +55,7 @@ public class Menu {
 	     * and make a try-catch block if the answer is not an integer.
 	     */
 
-	    //Make sure choice is 1, 2 or 3.
+	    //Make sure choice is 1, 2, 3 or 4.
 	    do {
 	        choice = sc.nextInt();
 	        if (choice != 1 && choice != 2 && choice != 3 && choice != 4) {
