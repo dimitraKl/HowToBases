@@ -7,7 +7,7 @@ public class Table {
 
 	private String tableName;
 	private static int NUMBER_OF_CATEGORIES;
-	private String[] categoriesNames = new String[NUMBER_OF_CATEGORIES];
+	private String[] categoriesNames;
     private ArrayList<Data> allData = new ArrayList<Data>();
     private String referencePointName;
     
@@ -34,12 +34,12 @@ public class Table {
 		tableName = sc.nextLine();
 		System.out.println("How many categories would you like?");
 		NUMBER_OF_CATEGORIES = sc.nextInt();
+		categoriesNames = new String[NUMBER_OF_CATEGORIES];
 
 		categoriesNames[0] = sc.nextLine();
 		for (int i = 0; i < categoriesNames.length; i++) {
 			System.out.println("Give name of category " + (i+1) + ": ");
 			categoriesNames[i] = sc.nextLine();
-			System.out.println("\n");
 		}
 		
 		System.out.println("Choose which category you want to be used as point of reference.");
@@ -89,7 +89,7 @@ public class Table {
 		Data returnValue = null;
 		do {
 			for(Data d : allData) {
-				if (chosenData.equals(d.getReferencePointName())) {
+				if (chosenData.equals(d.getDataByColumn()[d.getReferencePoint()])) {
 					returnValue = d;
 					break;
 				}

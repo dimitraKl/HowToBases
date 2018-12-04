@@ -38,7 +38,7 @@ public class Deletion {
 	public ArrayList<Table> deleteTable(ArrayList<Table> dataBase, Table givenTable  ) {
 
 		System.out.println("You have chosen to delete the table " + givenTable.getTableName() 
-					+ "Are you sure you want to proceed with the deletion? Please type 'Yes' or 'No'.  ");
+					+ " Are you sure you want to proceed with the deletion? Please type 'Yes' or 'No'.  ");
 
 		Scanner sc = new Scanner(System.in);
 		String choice = sc.nextLine();
@@ -55,7 +55,7 @@ public class Deletion {
 				}	
 				flag  = false;
 			} else if (choice.equals("No")) {
-				System.out.println("You have chosen not to delete the table: " + givenTable.getTableName() );
+				System.out.println("You have chosen not to delete the table: " + givenTable.getTableName() + " ");
 		 		flag = false;
 		 	} else {
 		 		System.out.println("Please type 'Yes' or 'No' to give your choice again. ");

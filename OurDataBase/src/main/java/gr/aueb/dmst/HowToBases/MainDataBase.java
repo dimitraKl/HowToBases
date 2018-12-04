@@ -4,7 +4,9 @@ public class MainDataBase {
 
 	public static void main(String[] args) {
 		DataBase myDataBase = new DataBase();
-		myDataBase.chooseTablesFunction();
+		for (;;) {
+			myDataBase.chooseTablesFunction();
+		}
 	}
 
 }

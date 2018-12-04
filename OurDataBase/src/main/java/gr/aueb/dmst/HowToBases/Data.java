@@ -41,6 +41,7 @@ public class Data {
 			}
 		}
 
+		dataByColumn = new String[categoriesNames.length];
 		Scanner sc = new Scanner(System.in);
 		for (int i = 0; i < categoriesNames.length; i++) {
 			System.out.println("Give " + categoriesNames[i] + ": ");
@@ -70,8 +71,10 @@ public class Data {
 	
 	public int chooseData(String[] categoriesNames) {
 		
-		System.out.println("Choose a category.\nCurrently existing categories: \n" 
-				+ categoriesNames.toString() + "\n");
+		System.out.println("Choose a category.\nCurrently existing categories: \n");
+		for (int i = 0; i < categoriesNames.length; i++) {
+			System.out.println(categoriesNames[i]);
+		}
 		Scanner sc = new Scanner(System.in);
 		String chosenCategory = sc.nextLine();
 		int returnValue = -1;
@@ -84,14 +87,20 @@ public class Data {
 			}
 			if (returnValue == -1) {
 				System.out.println("The chosen data element does not exist.\n"
-								 + "Please choose again.\nCurrently existing data: \n"
-						         + categoriesNames.toString() + "\n");
+								 + "Please choose again.\nCurrently existing data: ");
+				for (int i = 0; i < categoriesNames.length; i++) {
+					System.out.println(categoriesNames[i]);
+				}
 				chosenCategory = sc.nextLine();
 			}
 		} while(returnValue == -1);
 		
 		return returnValue;
 
+	}
+	
+	@Override public String toString() {
+		return this.dataByColumn[getReferencePoint()];
 	}
 	
 	public void toMyString() {

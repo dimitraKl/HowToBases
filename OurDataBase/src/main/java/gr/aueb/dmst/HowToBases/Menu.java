@@ -1,6 +1,5 @@
 package gr.aueb.dmst.HowToBases;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 /**
  * Creates a menu of choices for processing the Database
@@ -69,9 +68,20 @@ public class Menu {
 
 	public static int dataByColumnMenu() {
 		
-		//Unfinished. Like the above but only with edit and display 
-		int choice = 0;
+		System.out.println("--- FUNCTIONS MENU ---");
+		System.out.println("Press 1 to edit a category in this data element. \n"
+	    		         + "Press 2 to display a category of this data element. \n");
+		Scanner sc = new Scanner(System.in);
+		int choice;
+
+		do {
+	        choice = sc.nextInt();
+	        if (choice != 1 && choice != 2) {
+	        	System.out.println("Please insert 1 or 2. ");
+	        }
+	    } while (choice != 1 && choice != 2);
 		
 		return choice;
 	}
+
 }
