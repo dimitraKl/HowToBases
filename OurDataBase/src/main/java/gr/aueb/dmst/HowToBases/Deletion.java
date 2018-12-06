@@ -2,6 +2,7 @@ package gr.aueb.dmst.HowToBases;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Iterator;
 
 public class Deletion {
 
@@ -48,9 +49,11 @@ public class Deletion {
 		while (flag) {
 			if (choice.equals("Yes") ) {
 
-				for (Table t : dataBase) {
+				Iterator<Table> it = dataBase.iterator();
+				while (it.hasNext()) {
+					Table t = it.next();
 				 	if (givenTable.getTableName().equals(t.getTableName())) {
-				 		dataBase.remove(t);
+				 		it.remove();
 				 	}
 				}	
 				flag  = false;
