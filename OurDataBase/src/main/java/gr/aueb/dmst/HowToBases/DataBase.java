@@ -33,18 +33,14 @@ public class DataBase {
 		
 		int choice = Menu.tablesMenu();
 		
-		//make objects for each class so that they can be called
-	    //Addition objAdd = new Addition();
-		Deletion objDelete = new Deletion();
-		
 		switch (choice) {
 	   
-		case 1: //tables = objAdd.addTable(tables);
-				Table newTable = new Table();
+		case 1: Table newTable = new Table();
 				tables.add(newTable);
 	            break;
        
-	    case 2: tables = objDelete.deleteTable(tables, chooseTable());
+	    case 2: Deletion objDelete = new Deletion();
+	    		tables = objDelete.deleteTable(tables, chooseTable());
 	            break;
 
 	    case 3: chooseTable().chooseDataFunction();

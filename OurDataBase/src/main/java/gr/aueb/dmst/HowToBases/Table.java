@@ -43,8 +43,19 @@ public class Table {
 		}
 		
 		System.out.println("Choose which category you want to be used as point of reference.");
-		referencePointName = sc.nextLine();
-		//make sure category exists
+		boolean found = false;
+		do {
+			referencePointName = sc.nextLine();
+			for(int i = 0; i < categoriesNames.length; i++) {
+				if (referencePointName.equals(categoriesNames[i])) {
+					found = true;
+					break;
+				}
+			}
+			if (found == false) {
+				System.out.println("Invalid category name. Please try again.");
+			}
+		} while(found == false);
 		
 		Data newData = new Data(categoriesNames, referencePointName);
 		allData.add(newData);
@@ -55,19 +66,14 @@ public class Table {
 			
 		int choice = Menu.dataMenu();
 		
-		//make objects for each class so that they can be called
-	    //Addition objAdd = new Addition();
-		Deletion objDelete = new Deletion();
-		Edit objEdit = new Edit();
-		    
 		switch (choice) {
 	   
-		case 1: //allData = objAdd.addData(allData);
-				Data newData = new Data(categoriesNames, referencePointName);
+		case 1:	Data newData = new Data(categoriesNames, referencePointName);
 				allData.add(newData);
 	            break;
 
-	    case 2: allData = objDelete.deleteData(allData, chooseData());
+	    case 2: Deletion objDelete = new Deletion();
+	    		allData = objDelete.deleteData(allData, chooseData());
 	            break;
 
 	    case 3: chooseData().chooseFunction(categoriesNames);

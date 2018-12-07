@@ -55,11 +55,10 @@ public class Data {
 
 		int choice = Menu.dataByColumnMenu();
 
-		Edit objEdit = new Edit();
-
 		switch (choice) {
 
-	    case 1: dataByColumn = objEdit.editData(dataByColumn, chooseData(categoriesNames));
+	    case 1: Edit objEdit = new Edit();
+	    		dataByColumn = objEdit.editData(dataByColumn, chooseData(categoriesNames));
 	            break;
 	            
 	    case 2: System.out.println(this.dataByColumn[chooseData(categoriesNames)]);
