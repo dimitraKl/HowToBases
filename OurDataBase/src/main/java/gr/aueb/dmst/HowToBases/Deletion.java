@@ -17,13 +17,17 @@ public class Deletion {
 
 		while (flag) {
 			if (choice.equals("Yes") ) {
-				for (Data d : allData) {
+
+				Iterator<Data> it = allData.iterator();
+				while (it.hasNext()) {
+					Data d = it.next();
 					if (givenData.getDataByColumn()[givenData.getReferencePoint()].equals
 							(d.getDataByColumn()[d.getReferencePoint()])) {
-						allData.remove(d);
-				    }
+						it.remove();
+					}
 				}
 			 	flag = false;
+
 		 	} else if (choice.equals("No")) {
 		 		System.out.println("You have chosen not to delete this element. ");
 		 		flag = false;
@@ -57,6 +61,7 @@ public class Deletion {
 				 	}
 				}	
 				flag  = false;
+
 			} else if (choice.equals("No")) {
 				System.out.println("You have chosen not to delete the table: " + givenTable.getTableName() + " ");
 		 		flag = false;
