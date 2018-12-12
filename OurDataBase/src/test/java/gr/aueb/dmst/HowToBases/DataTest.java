@@ -6,12 +6,12 @@ import org.junit.Test;
 
 public class DataTest {
 	
-	String [] catNames = {"name", "surname"};
-	Data dataobj = new Data(catNames, "name");
-
-    @Test
+	@Test
 	public void testData() {
-		assert dataobj.getReferencePointName().equals("name") : "Error in the constructor. " + 
+    	
+    	String [] catNames = {"name", "surname"};
+    	Data dataobj = new Data(catNames, "name");
+    	assert dataobj.getReferencePointName().equals("name") : "Error in the constructor. " + 
 				                                                "Invalid reference point name";
 		assert dataobj.getReferencePoint() == 0 : "Error in the constructor. " + 
                                                   "Invalid reference point number";
@@ -27,6 +27,8 @@ public class DataTest {
 	@Test
 	public void testChooseData() {
 		
+		String [] catNames = {"name", "surname"};
+		Data dataobj = new Data(catNames, "name");
 		int choice = dataobj.chooseData(catNames);
 		assert choice != -1 : "Error in ChooseData. Returned value is -1";
 		

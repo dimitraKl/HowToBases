@@ -26,6 +26,17 @@ public class Table {
 	public void setCategoriesNames(String[] categoriesNames) {
 		this.categoriesNames = categoriesNames;
 	}
+	
+	
+	public void setAllData(ArrayList<Data> allData) {
+		
+		this.allData = allData;
+	}
+	
+	public ArrayList<Data> getAllData() {
+		
+		return allData;
+	}
 
 	public Table() {
 

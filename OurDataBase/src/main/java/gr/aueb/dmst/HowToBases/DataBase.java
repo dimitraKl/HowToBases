@@ -7,9 +7,19 @@ public class DataBase {
 	
 	private String dataBaseName;
 	private ArrayList<Table> tables = new ArrayList<Table>();
+	
+	public ArrayList<Table> getTables() {
+		
+		return tables;
+	}
+	
+	public void setTables(ArrayList<Table> tables) {
+		
+		this.tables = tables;
+		
+	}
 
-
-	/**
+	 /**
 	 * Creation of the DataBase.
 	 * <p>
 	 * This method includes naming DataBases,
@@ -25,7 +35,7 @@ public class DataBase {
 		dataBaseName = sc.nextLine();
 
 		Table newTable = new Table();
-		tables.add(newTable);
+		tables.add(newTable); 
 
 	}
 	
