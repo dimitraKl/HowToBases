@@ -1,5 +1,7 @@
 package gr.aueb.dmst.HowToBases;
 
+
+
 import java.util.Scanner;
 
 public class Data {
@@ -7,7 +9,7 @@ public class Data {
 	private String referencePointName;
 	private int referencePoint;
 	private String[] dataByColumn;
-    
+
 	public String getReferencePointName() {
 		return referencePointName;
 	}
@@ -32,25 +34,38 @@ public class Data {
 		this.dataByColumn = dataByColumn;
 	}
 
-	public Data(String[] categoriesNames, String referencePointName) {
+	public Data() {
+
+	}
+
+	public Data(String referencePointName, int referencePoint, String[] dataByColumn) {
 
 		this.referencePointName = referencePointName;
+		this.referencePoint = referencePoint;
+		this.dataByColumn = dataByColumn;
+
+	}
+
+	public int convertReferencePoint(String referencePointName, String[] categoriesNames) {
 		for (int i = 0; i < categoriesNames.length; i++) {
 			if (referencePointName.equals(categoriesNames[i])) {
-				referencePoint = i;
+				int referencePoint = i;
+				break;
 			}
 		}
+		return referencePoint;
+	}
 
-		dataByColumn = new String[categoriesNames.length];
+	public String[] askForDataByColumn(String[] categoriesNames) {
+		String[] dataByColumn = new String[categoriesNames.length];
 		Scanner sc = new Scanner(System.in);
 		for (int i = 0; i < categoriesNames.length; i++) {
 			System.out.println("Give " + categoriesNames[i] + ": ");
 			dataByColumn[i] = sc.nextLine();
-			System.out.println("\n");
 		}
-			
+		return dataByColumn;
 	}
-	
+
 	public void chooseFunction(String[] categoriesNames) {
 
 		int choice = Menu.dataByColumnMenu();
@@ -60,16 +75,16 @@ public class Data {
 	    case 1: Edit objEdit = new Edit();
 	    		dataByColumn = objEdit.editData(dataByColumn, chooseData(categoriesNames));
 	            break;
-	            
+
 	    case 2: System.out.println(this.dataByColumn[chooseData(categoriesNames)]);
 	    		break;
 
 	    }
 
 	}
-	
+
 	public int chooseData(String[] categoriesNames) {
-		
+
 		System.out.println("Choose a category.\nCurrently existing categories: \n");
 		for (int i = 0; i < categoriesNames.length; i++) {
 			System.out.println(categoriesNames[i]);
@@ -93,15 +108,16 @@ public class Data {
 				chosenCategory = sc.nextLine();
 			}
 		} while(returnValue == -1);
-		
+
 		return returnValue;
 
 	}
-	
-	@Override public String toString() {
+
+	@Override
+	public String toString() {
 		return this.dataByColumn[getReferencePoint()];
 	}
-	
+
 	public void toMyString() {
 		for (int i = 0; i < this.getDataByColumn().length; i++) {
 			System.out.print(this.getDataByColumn()[i] + " ");

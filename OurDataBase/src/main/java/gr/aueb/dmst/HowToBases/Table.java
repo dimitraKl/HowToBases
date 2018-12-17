@@ -1,16 +1,17 @@
 package gr.aueb.dmst.HowToBases;
 
+
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Table {
 
 	private String tableName;
-	private static int NUMBER_OF_CATEGORIES;
 	private String[] categoriesNames;
     private ArrayList<Data> allData = new ArrayList<Data>();
     private String referencePointName;
-    
+
 	public String getTableName() {
 		return tableName;
 	}
@@ -26,34 +27,49 @@ public class Table {
 	public void setCategoriesNames(String[] categoriesNames) {
 		this.categoriesNames = categoriesNames;
 	}
-	
-	
-	public void setAllData(ArrayList<Data> allData) {
-		
-		this.allData = allData;
-	}
-	
-	public ArrayList<Data> getAllData() {
-		
-		return allData;
-	}
 
 	public Table() {
 
-		System.out.println("How would you like to name this table?");
+	}
+
+	public Table(String tableName, String[] categoriesNames) {
+
+		this.tableName = tableName;
+		this.categoriesNames = categoriesNames;
+		this.referencePointName = this.askForReferencePoint(this.categoriesNames);
+
+		Data d = new Data();
+		Data newData = new Data(this.referencePointName,
+				d.convertReferencePoint(this.referencePointName, this.categoriesNames),
+				d.askForDataByColumn(this.categoriesNames));
+		allData.add(newData);
+
+	}
+
+	public String askForName() {
 		Scanner sc = new Scanner(System.in);
-		tableName = sc.nextLine();
+		System.out.println("How would you like to name this table?");
+		return sc.nextLine();
+	}
+
+	public String[] askForCategories() {
+		Scanner sc = new Scanner(System.in);
 		System.out.println("How many categories would you like?");
-		NUMBER_OF_CATEGORIES = sc.nextInt();
-		categoriesNames = new String[NUMBER_OF_CATEGORIES];
+		int numberOfCategories = sc.nextInt();
+		String[] categoriesNames = new String[numberOfCategories];
 
 		categoriesNames[0] = sc.nextLine();
 		for (int i = 0; i < categoriesNames.length; i++) {
 			System.out.println("Give name of category " + (i+1) + ": ");
 			categoriesNames[i] = sc.nextLine();
 		}
-		
+		return categoriesNames;
+	}
+
+	public String askForReferencePoint(String[] categoriesNames) {
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Choose which category you want to be used as point of reference.");
+		String referencePointName;
 		boolean found = false;
 		do {
 			referencePointName = sc.nextLine();
@@ -67,19 +83,20 @@ public class Table {
 				System.out.println("Invalid category name. Please try again.");
 			}
 		} while(found == false);
-		
-		Data newData = new Data(categoriesNames, referencePointName);
-		allData.add(newData);
 
+		return referencePointName;
 	}
 
 	public void chooseDataFunction() {
-			
+
 		int choice = Menu.dataMenu();
-		
+
 		switch (choice) {
-	   
-		case 1:	Data newData = new Data(categoriesNames, referencePointName);
+
+		case 1: Data d = new Data();
+				Data newData = new Data(this.referencePointName,
+						d.convertReferencePoint(this.referencePointName, this.categoriesNames),
+						d.askForDataByColumn(this.categoriesNames));
 				allData.add(newData);
 	            break;
 
@@ -98,8 +115,8 @@ public class Table {
 	}
 
 	public Data chooseData() {
-		
-		System.out.println("Choose an element of data.\nCurrently existing data: \n" 
+
+		System.out.println("Choose an element of data.\nCurrently existing data: \n"
 				+ allData.toString() + "\n");
 		Scanner sc = new Scanner(System.in);
 		String chosenData = sc.nextLine();
@@ -118,14 +135,16 @@ public class Table {
 				chosenData = sc.nextLine();
 			}
 		} while(returnValue == null);
-		
+
 		return returnValue;
 
 	}
 
-	@Override public String toString() {
+	@Override
+	public String toString() {
 		return this.getTableName();
 	}
 
 }
+
 

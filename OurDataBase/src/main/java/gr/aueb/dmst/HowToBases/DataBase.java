@@ -1,25 +1,17 @@
 package gr.aueb.dmst.HowToBases;
 
+
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class DataBase {
-	
+
 	private String dataBaseName;
 	private ArrayList<Table> tables = new ArrayList<Table>();
-	
-	public ArrayList<Table> getTables() {
-		
-		return tables;
-	}
-	
-	public void setTables(ArrayList<Table> tables) {
-		
-		this.tables = tables;
-		
-	}
 
-	 /**
+
+	/**
 	 * Creation of the DataBase.
 	 * <p>
 	 * This method includes naming DataBases,
@@ -30,41 +22,55 @@ public class DataBase {
 
 	public DataBase() {
 
-		System.out.println("Welcome to your data base. How would you like to name it?");
-		Scanner sc = new Scanner(System.in);
-		dataBaseName = sc.nextLine();
+	}
 
-		Table newTable = new Table();
-		tables.add(newTable); 
+	public DataBase(String dataBaseName) {
+
+		this.dataBaseName = dataBaseName;
+
+		Table t = new Table();
+		Table newTable = new Table(t.askForName(), t.askForCategories());
+		tables.add(newTable);
 
 	}
-	
+
+	public String askForName() {
+
+		System.out.println("Welcome to your data base. How would you like to name it?");
+		Scanner sc = new Scanner(System.in);
+		String dataBaseName = sc.nextLine();
+
+		return dataBaseName;
+
+	}
+
 	public void chooseTablesFunction() {
-		
+
 		int choice = Menu.tablesMenu();
-		
+
 		switch (choice) {
-	   
-		case 1: Table newTable = new Table();
+
+		case 1: Table t = new Table();
+				Table newTable = new Table(t.askForName(), t.askForCategories());
 				tables.add(newTable);
 	            break;
-       
+
 	    case 2: Deletion objDelete = new Deletion();
 	    		tables = objDelete.deleteTable(tables, chooseTable());
 	            break;
 
 	    case 3: chooseTable().chooseDataFunction();
 	            break;
-	            
+
 	    case 4: Display.toDisplayAll(tables);
-		            
+
 	    }
 
 	}
 
 	public Table chooseTable() {
 
-		System.out.println("Choose a table.\nCurrently existing tables: \n" 
+		System.out.println("Choose a table.\nCurrently existing tables: \n"
 							+ tables.toString() + "\n");
 		Scanner sc = new Scanner(System.in);
 		String chosenTable = sc.nextLine();
@@ -83,9 +89,10 @@ public class DataBase {
 				chosenTable = sc.nextLine();
 			}
 		} while(returnValue == null);
-		
+
 		return returnValue;
 
 	}
 
 }
+
