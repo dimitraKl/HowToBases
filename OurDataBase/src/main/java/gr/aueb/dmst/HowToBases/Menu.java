@@ -1,5 +1,6 @@
 package gr.aueb.dmst.HowToBases;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -17,14 +18,23 @@ public class Menu {
 				         + "Press 3 to edit a table of your data base. \n"
 	    		         + "Press 4 to display all the tables of your data base. \n\n");
 	    Scanner sc = new Scanner(System.in);
-	    int choice;
+	    int choice = 0;
+	    boolean input;
 
 	    //Make sure choice is 1, 2, 3 or 4.
 	    do {
-	        choice = sc.nextInt();
-	        if (choice != 1 && choice != 2 && choice != 3 && choice != 4) {
-	        	System.out.println("Please insert 1, 2, 3 or 4.");
-	        }
+	    	do {
+	    		try {
+	    			input = true;
+		            choice = sc.nextInt();
+		        } catch(InputMismatchException e) {
+		        	input = false;
+		        	System.out.println("You must insert a number (1-4).");
+		        }   
+	    	} while(input = false);
+	    	if (choice != 1 && choice != 2 && choice != 3 && choice != 4) {
+        		System.out.println("Please insert 1, 2, 3 or 4. ");
+			}
 	    } while (choice != 1 && choice != 2 && choice != 3 && choice != 4);
 
 	    return choice;
@@ -51,18 +61,26 @@ public class Menu {
 	    		         + "Press 4 to display the elements of this table. \n\n");
 		//add table names
 	    Scanner sc = new Scanner(System.in);
-	    int choice;
+	    int choice = 0;
+	    boolean input;
 
 	    /*If more choices are to be displayed we can use "choice <1 || choice >++"
 	     * and make a try-catch block if the answer is not an integer.
 	     */
 
-	    //Make sure choice is 1, 2, 3 or 4.
 	    do {
-	        choice = sc.nextInt();
-	        if (choice != 1 && choice != 2 && choice != 3 && choice != 4) {
-	        	System.out.println("Please insert 1, 2, 3 or 4. ");
-	        }
+	    	do {
+	    		try {
+	    			input = true;
+		            choice = sc.nextInt();
+		        } catch(InputMismatchException e) {
+		        	input = false;
+		        	System.out.println("You must insert a number (1-4).");
+		        }   
+	    	} while(input = false);
+	    	if (choice != 1 && choice != 2 && choice != 3 && choice != 4) {
+        		System.out.println("Please insert 1, 2, 3 or 4. ");
+			}
 	    } while (choice != 1 && choice != 2 && choice != 3 && choice != 4);
 
 	    return choice;
@@ -76,14 +94,24 @@ public class Menu {
 		System.out.println("Press 1 to edit a category in this data element. \n"
 	    		         + "Press 2 to display a category of this data element. \n\n");
 		Scanner sc = new Scanner(System.in);
-		int choice;
+		int choice = 0;
+		boolean input;
 
 		do {
-	        choice = sc.nextInt();
-	        if (choice != 1 && choice != 2) {
-	        	System.out.println("Please insert 1 or 2. ");
-	        }
+	    	do {
+	    		try {
+	    			input = true;
+		            choice = sc.nextInt();
+		        } catch(InputMismatchException e) {
+		        	input = false;
+		        	System.out.println("You must insert a number (1 or 2).");
+		        }   
+	    	} while(input = false);
+	    	if (choice != 1 && choice != 2) {
+        		System.out.println("Please insert 1 or 2. ");
+			}
 	    } while (choice != 1 && choice != 2);
+
 
 		return choice;
 	}
