@@ -3,6 +3,9 @@ package gr.aueb.dmst.HowToBases;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.JLabel;
 
 public class DesignerTest {
 
@@ -38,6 +41,11 @@ public class DesignerTest {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("TABLES MENU");
+		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 14));
+		lblNewLabel.setBounds(164, 11, 94, 31);
+		frame.getContentPane().add(lblNewLabel);
 	}
-
 }
