@@ -47,17 +47,9 @@ public class Table {
 	}
 
 	public Table(String tableName, String[] categoriesNames) {
-
 		this.tableName = tableName;
 		this.categoriesNames = categoriesNames;
 		this.referencePointName = this.askForReferencePoint(this.categoriesNames);
-
-		Data d = new Data();
-		Data newData = new Data(this.referencePointName,
-				d.convertReferencePoint(this.referencePointName, this.categoriesNames),
-				d.askForDataByColumn(this.categoriesNames));
-		allData.add(newData);
-
 	}
 
 	public String askForName() {
@@ -117,13 +109,11 @@ public class Table {
 
 	    case 4: f.toDisplayData(allData);
 	    		break;
-
 	    }
 
 	}
 
 	public Data chooseData() {
-
 		System.out.println("Choose an element of data.\nCurrently existing data: \n"
 				+ allData.toString() + "\n");
 		Scanner sc = new Scanner(System.in);
@@ -145,7 +135,6 @@ public class Table {
 		} while(returnValue == null);
 
 		return returnValue;
-
 	}
 
 	@Override

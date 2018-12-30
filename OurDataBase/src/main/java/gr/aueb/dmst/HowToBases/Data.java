@@ -37,17 +37,16 @@ public class Data {
 	}
 
 	public Data(String referencePointName, int referencePoint, String[] dataByColumn) {
-
 		this.referencePointName = referencePointName;
 		this.referencePoint = referencePoint;
 		this.dataByColumn = dataByColumn;
-
 	}
 
 	public int convertReferencePoint(String referencePointName, String[] categoriesNames) {
+		int referencePoint = -1;
 		for (int i = 0; i < categoriesNames.length; i++) {
 			if (referencePointName.equals(categoriesNames[i])) {
-				int referencePoint = i;
+				referencePoint = i;
 				break;
 			}
 		}
@@ -65,24 +64,19 @@ public class Data {
 	}
 
 	public void chooseFunction(String[] categoriesNames) {
-
 		int choice = Menu.dataByColumnMenu();
 
 		switch (choice) {
-
 	    case 1: Functions f = new Functions();
 	    		dataByColumn = f.editData(dataByColumn, chooseData(categoriesNames));
 	            break;
 
 	    case 2: System.out.println(this.dataByColumn[chooseData(categoriesNames)]);
 	    		break;
-
 	    }
-
 	}
 
 	public int chooseData(String[] categoriesNames) {
-
 		System.out.println("Choose a category.\nCurrently existing categories: \n");
 		for (int i = 0; i < categoriesNames.length; i++) {
 			System.out.println(categoriesNames[i]);
@@ -108,7 +102,6 @@ public class Data {
 		} while(returnValue == -1);
 
 		return returnValue;
-
 	}
 
 	@Override
@@ -119,9 +112,7 @@ public class Data {
 	public void toMyString() {
 		for (int i = 0; i < this.getDataByColumn().length; i++) {
 			System.out.print(this.getDataByColumn()[i] + " ");
-
 		}
-
 	}
 
 }

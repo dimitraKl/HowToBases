@@ -10,6 +10,9 @@ public class Functions {
 		Table t = new Table();
 		Table newTable = new Table(t.askForName(), t.askForCategories());
 		tables.add(newTable);
+		newTable.setAllData(new Functions().addData(newTable.getAllData(),
+				newTable.getReferencePointName(),
+				newTable.getCategoriesNames()));
 		return tables;
 	}
 
@@ -91,14 +94,12 @@ public class Functions {
 	}
 	
 	public String[] editData(String[] dataByColumn, int givenPosition) {
-
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Change element " + dataByColumn[givenPosition] + " to : \n (Insert the new name)");
 		String newElement = sc.nextLine();
 		dataByColumn[givenPosition] = newElement;
 		System.out.println("Changes have been successfully made.");
-		return dataByColumn;
-		
+		return dataByColumn;	
 	}
 	
 	public void toDisplayTable(ArrayList<Table> a) {

@@ -19,10 +19,6 @@ public class DataBase {
 	 * initializing the names of categories and puts them in categoriesNames table. All given by the user.
 	 * Creates an object of Menu class and calls menu method while passing the categoriesNames table to Menu.
 	 */
-	
-	public DataBase() {
-
-	}
 
 	public String getDataBaseName() {
 		return dataBaseName;
@@ -40,24 +36,20 @@ public class DataBase {
 		this.tables = tables;
 	}
 
-	public DataBase(String dataBaseName) {
-
-		this.dataBaseName = dataBaseName;
-
-		Table t = new Table();
-		Table newTable = new Table(t.askForName(), t.askForCategories());
-		tables.add(newTable);
+	public DataBase() {
 
 	}
 
-	public String askForName() {
+	public DataBase(String dataBaseName) {
+		this.dataBaseName = dataBaseName;
+	}
 
+	public String askForName() {
 		System.out.println("Welcome to your data base. How would you like to name it?");
 		Scanner sc = new Scanner(System.in);
 		String dataBaseName = sc.nextLine();
 
 		return dataBaseName;
-
 	}
 
 	public void chooseTablesFunction() {
@@ -75,13 +67,12 @@ public class DataBase {
 	            break;
 
 	    case 4: f.toDisplayTable(tables);
-
+	    		break;
 	    }
 
 	}
 
 	public Table chooseTable() {
-
 		System.out.println("Choose a table.\nCurrently existing tables: \n"
 							+ tables.toString() + "\n");
 		Scanner sc = new Scanner(System.in);
@@ -103,7 +94,6 @@ public class DataBase {
 		} while(returnValue == null);
 
 		return returnValue;
-
 	}
 
 }
