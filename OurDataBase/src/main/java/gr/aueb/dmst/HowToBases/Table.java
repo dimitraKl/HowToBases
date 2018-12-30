@@ -56,6 +56,7 @@ public class Table {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("How would you like to name this table?");
 		return sc.nextLine();
+		
 	}
 
 	public String[] askForCategories() {

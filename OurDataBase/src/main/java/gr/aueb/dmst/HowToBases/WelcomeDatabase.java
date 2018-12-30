@@ -12,12 +12,13 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
-public class WelcomeDatabase {
+public class WelcomeDatabase { //implements Runnable {
 
 	private JFrame frame;
-	private JTextField textField;
-
+	private JTextField nameTextField;
+	private String name;
 	/**
 	 * Launch the application.
 	 */
@@ -33,47 +34,54 @@ public class WelcomeDatabase {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the application.
 	 */
 	public WelcomeDatabase() {
-		initialize();
+		name = initialize();
+	}
+	public String getName() {
+		return name;
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public String initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 450, 260);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblWelcomeToYour = new JLabel("Welcome to your Database!");
-		lblWelcomeToYour.setBounds(74, 30, 264, 22);
-		lblWelcomeToYour.setFont(new Font("Tahoma", Font.BOLD, 16));
-		frame.getContentPane().add(lblWelcomeToYour);
+		JLabel welcomeLabel = new JLabel("Welcome to your Database!");
+		welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		welcomeLabel.setBounds(95, 25, 260, 30);
+		welcomeLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		frame.getContentPane().add(welcomeLabel);
 		
-		JLabel lblHowWouldYou = new JLabel("How would you like to name it?");
-		lblHowWouldYou.setBounds(74, 84, 264, 22);
-		lblHowWouldYou.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frame.getContentPane().add(lblHowWouldYou);
+		JLabel askForNameLabel = new JLabel("How would you like to name it?");
+		askForNameLabel.setBounds(30, 100, 200, 30);
+		askForNameLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		frame.getContentPane().add(askForNameLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(74, 130, 144, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		nameTextField = new JTextField();
+		nameTextField.setBounds(230, 100, 150, 30);
+		frame.getContentPane().add(nameTextField);
+		nameTextField.setColumns(10);
+		name = nameTextField.getText();
 		
-		JButton btnContinue = new JButton("CONTINUE");
-		btnContinue.addActionListener(new ActionListener() {
+		JButton continueButton = new JButton("CONTINUE");
+		continueButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		continueButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				TablesMenu t = new TablesMenu();
-				t.setVisible(true);
 			}
 		});
-		btnContinue.setBounds(74, 178, 106, 23);
-		frame.getContentPane().add(btnContinue);
+		continueButton.setBounds(250, 175, 120, 30);
+		frame.getContentPane().add(continueButton);
+	
+		return name;
 	}
 }

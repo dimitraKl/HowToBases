@@ -3,9 +3,10 @@ package gr.aueb.dmst.HowToBases;
 
 
 import java.util.Scanner;
+//import javax.swing.JFrame;
 import java.util.ArrayList;
 
-public class DataBase {
+public class DataBase { // extends JFrame {
 
 	private String dataBaseName;
 	private ArrayList<Table> tables = new ArrayList<Table>();
@@ -51,6 +52,13 @@ public class DataBase {
 
 		return dataBaseName;
 	}
+	//public String askForName() {
+		// WelcomeDatabase wd = new WelcomeDatabase();
+		//wd.setVisible(true);
+//		String dataBaseName = wd.getName();
+		
+//		return dataBaseName;
+//	}
 
 	public void chooseTablesFunction() {
 		int choice = Menu.tablesMenu();

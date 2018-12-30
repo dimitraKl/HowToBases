@@ -9,8 +9,12 @@ import javax.swing.border.EmptyBorder;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class TablesMenu extends JFrame {
 
@@ -43,33 +47,41 @@ public class TablesMenu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblMenu = new JLabel("-- Menu --");
-		lblMenu.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblMenu.setBounds(163, 35, 110, 44);
-		contentPane.add(lblMenu);
+		JLabel tablesMenuLabel = new JLabel("TABLES MENU");
+		tablesMenuLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		tablesMenuLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		tablesMenuLabel.setBounds(119, 20, 150, 30);
+		getContentPane().add(tablesMenuLabel);
+
+		JRadioButton addButton = new JRadioButton("Αdd an element to this table.");
+		addButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		addButton.setBounds(79, 60, 300, 25);
+		getContentPane().add(addButton);
+
+		JRadioButton deleteButton = new JRadioButton("Delete a table from your data base.");
+		deleteButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		deleteButton.setBounds(79, 90, 300, 25);
+		getContentPane().add(deleteButton);
+
+		JRadioButton editButton = new JRadioButton("Edit a table of your data base.");
+		editButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		editButton.setBounds(79, 120, 300, 25);
+		getContentPane().add(editButton);
 		
-		JRadioButton rdbtnCreateATable = new JRadioButton("Create a table in your database");
-		rdbtnCreateATable.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		rdbtnCreateATable.setBounds(97, 86, 242, 23);
-		contentPane.add(rdbtnCreateATable);
+		JRadioButton displayButton = new JRadioButton("Display all the tables of your data base.");
+		displayButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		displayButton.setBounds(79, 150, 300, 25);
+		getContentPane().add(displayButton);
 		
-		JRadioButton rdbtnDeleteATable = new JRadioButton("Delete a table from your database");
-		rdbtnDeleteATable.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		rdbtnDeleteATable.setBounds(97, 112, 242, 23);
-		contentPane.add(rdbtnDeleteATable);
+		JButton continueButton = new JButton("CONTINUE");
+		continueButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		continueButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		continueButton.setBounds(250, 200, 120, 30);
+		getContentPane().add(continueButton);
 		
-		JRadioButton rdbtnEditATable = new JRadioButton("Edit a table of your database");
-		rdbtnEditATable.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		rdbtnEditATable.setBounds(97, 138, 242, 23);
-		contentPane.add(rdbtnEditATable);
-		
-		JRadioButton rdbtnDisplayAllThe = new JRadioButton("Display all the tables of your database");
-		rdbtnDisplayAllThe.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		rdbtnDisplayAllThe.setBounds(97, 164, 313, 23);
-		contentPane.add(rdbtnDisplayAllThe);
-		
-		JButton btnContinue = new JButton("CONTINUE");
-		btnContinue.setBounds(163, 206, 110, 23);
-		contentPane.add(btnContinue);
 	}
 }
