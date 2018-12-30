@@ -1,11 +1,11 @@
 package gr.aueb.dmst.HowToBases;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Iterator;
+import java.util.Scanner;
 
-public class Deletion {
-
+public class Functions {
+	
 	public ArrayList<Data> deleteData(ArrayList<Data> allData, Data givenData) {
 
 		System.out.println("Are you sure you want to delete this element? Please type 'Yes' or 'No'. ");
@@ -40,10 +40,10 @@ public class Deletion {
 		return allData;
 	}
 
-	public ArrayList<Table> deleteTable(ArrayList<Table> dataBase, Table givenTable  ) {
+	public ArrayList<Table> deleteTable(ArrayList<Table> dataBase, Table givenTable ) {
 
 		System.out.println("You have chosen to delete the table " + givenTable.getTableName() 
-					+ " Are you sure you want to proceed with the deletion? Please type 'Yes' or 'No'.  ");
+					+ " Are you sure you want to proceed with the deletion? Please type 'Yes' or 'No'. ");
 
 		Scanner sc = new Scanner(System.in);
 		String choice = sc.nextLine();
@@ -72,6 +72,29 @@ public class Deletion {
 		}
 
 		return dataBase;
+	}
+	
+	public String[] editData(String[] dataByColumn, int givenPosition) {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Change element " + dataByColumn[givenPosition] + " to : \n (Insert the new name)");
+		String newElement = sc.nextLine();
+		dataByColumn[givenPosition] = newElement;
+		System.out.println("Changes have been successfully made.");
+		return dataByColumn;
+		
+	}
+	
+	public static void toDisplayAll(ArrayList<Table> a) {
+		for (Table i:a) {
+			System.out.println(i.toString());
+		}
+	}
+
+	public static void toDisplayData(ArrayList<Data> a) {
+		for (Data i:a) {
+			i.toMyString();
+		}
 	}
 
 }
