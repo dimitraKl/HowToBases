@@ -19,9 +19,25 @@ public class DataBase {
 	 * initializing the names of categories and puts them in categoriesNames table. All given by the user.
 	 * Creates an object of Menu class and calls menu method while passing the categoriesNames table to Menu.
 	 */
-
+	
 	public DataBase() {
 
+	}
+
+	public String getDataBaseName() {
+		return dataBaseName;
+	}
+
+	public void setDataBaseName(String dataBaseName) {
+		this.dataBaseName = dataBaseName;
+	}
+
+	public ArrayList<Table> getTables() {
+		return tables;
+	}
+
+	public void setTables(ArrayList<Table> tables) {
+		this.tables = tables;
 	}
 
 	public DataBase(String dataBaseName) {

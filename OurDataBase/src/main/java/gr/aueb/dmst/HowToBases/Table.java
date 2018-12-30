@@ -25,6 +25,22 @@ public class Table {
 	public void setCategoriesNames(String[] categoriesNames) {
 		this.categoriesNames = categoriesNames;
 	}
+	
+	public ArrayList<Data> getAllData() {
+		return allData;
+	}
+
+	public void setAllData(ArrayList<Data> allData) {
+		this.allData = allData;
+	}
+
+	public String getReferencePointName() {
+		return referencePointName;
+	}
+
+	public void setReferencePointName(String referencePointName) {
+		this.referencePointName = referencePointName;
+	}
 
 	public Table() {
 
