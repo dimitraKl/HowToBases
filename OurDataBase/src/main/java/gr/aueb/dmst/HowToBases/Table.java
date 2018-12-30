@@ -1,7 +1,5 @@
 package gr.aueb.dmst.HowToBases;
 
-
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -88,26 +86,20 @@ public class Table {
 	}
 
 	public void chooseDataFunction() {
-
 		int choice = Menu.dataMenu();
+		Functions f = new Functions();
 
 		switch (choice) {
-
-		case 1: Data d = new Data();
-				Data newData = new Data(this.referencePointName,
-						d.convertReferencePoint(this.referencePointName, this.categoriesNames),
-						d.askForDataByColumn(this.categoriesNames));
-				allData.add(newData);
+		case 1: allData = f.addData(allData, referencePointName, categoriesNames);
 	            break;
 
-	    case 2: Deletion objDelete = new Deletion();
-	    		allData = objDelete.deleteData(allData, chooseData());
+	    case 2: allData = f.deleteData(allData, chooseData());
 	            break;
 
 	    case 3: chooseData().chooseFunction(categoriesNames);
 	    		break;
 
-	    case 4: Display.toDisplayData(allData);
+	    case 4: f.toDisplayData(allData);
 	    		break;
 
 	    }

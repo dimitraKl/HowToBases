@@ -1,7 +1,5 @@
 package gr.aueb.dmst.HowToBases;
 
-
-
 import java.util.Scanner;
 
 public class Data {
@@ -72,8 +70,8 @@ public class Data {
 
 		switch (choice) {
 
-	    case 1: Edit objEdit = new Edit();
-	    		dataByColumn = objEdit.editData(dataByColumn, chooseData(categoriesNames));
+	    case 1: Functions f = new Functions();
+	    		dataByColumn = f.editData(dataByColumn, chooseData(categoriesNames));
 	            break;
 
 	    case 2: System.out.println(this.dataByColumn[chooseData(categoriesNames)]);

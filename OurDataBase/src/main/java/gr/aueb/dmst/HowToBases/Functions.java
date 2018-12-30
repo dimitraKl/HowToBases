@@ -5,7 +5,23 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class Functions {
-	
+
+	public ArrayList<Table> addTable(ArrayList<Table> tables) {
+		Table t = new Table();
+		Table newTable = new Table(t.askForName(), t.askForCategories());
+		tables.add(newTable);
+		return tables;
+	}
+
+	public ArrayList<Data> addData(ArrayList<Data> allData, String referencePointName, String[] categoriesNames) {
+		Data d = new Data();
+		Data newData = new Data(referencePointName,
+				d.convertReferencePoint(referencePointName, categoriesNames),
+				d.askForDataByColumn(categoriesNames));
+		allData.add(newData);
+		return allData;
+	}
+
 	public ArrayList<Data> deleteData(ArrayList<Data> allData, Data givenData) {
 
 		System.out.println("Are you sure you want to delete this element? Please type 'Yes' or 'No'. ");
@@ -85,13 +101,13 @@ public class Functions {
 		
 	}
 	
-	public static void toDisplayAll(ArrayList<Table> a) {
+	public void toDisplayTable(ArrayList<Table> a) {
 		for (Table i:a) {
 			System.out.println(i.toString());
 		}
 	}
 
-	public static void toDisplayData(ArrayList<Data> a) {
+	public void toDisplayData(ArrayList<Data> a) {
 		for (Data i:a) {
 			i.toMyString();
 		}

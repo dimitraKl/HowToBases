@@ -45,24 +45,20 @@ public class DataBase {
 	}
 
 	public void chooseTablesFunction() {
-
 		int choice = Menu.tablesMenu();
+		Functions f = new Functions();
 
 		switch (choice) {
-
-		case 1: Table t = new Table();
-				Table newTable = new Table(t.askForName(), t.askForCategories());
-				tables.add(newTable);
+		case 1: tables = f.addTable(tables);
 	            break;
 
-	    case 2: Deletion objDelete = new Deletion();
-	    		tables = objDelete.deleteTable(tables, chooseTable());
+	    case 2: tables = f.deleteTable(tables, chooseTable());
 	            break;
 
 	    case 3: chooseTable().chooseDataFunction();
 	            break;
 
-	    case 4: Display.toDisplayAll(tables);
+	    case 4: f.toDisplayTable(tables);
 
 	    }
 
