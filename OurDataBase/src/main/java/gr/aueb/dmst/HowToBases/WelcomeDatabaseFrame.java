@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
-public class WelcomeDatabase { //implements Runnable {
+public class WelcomeDatabaseFrame { //implements Runnable {
 
 	private JFrame frame;
 	private JTextField nameTextField;
@@ -26,7 +26,7 @@ public class WelcomeDatabase { //implements Runnable {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					WelcomeDatabase window = new WelcomeDatabase();
+					WelcomeDatabaseFrame window = new WelcomeDatabaseFrame();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,12 +34,11 @@ public class WelcomeDatabase { //implements Runnable {
 			}
 		});
 	}
-	
 
 	/**
 	 * Create the application.
 	 */
-	public WelcomeDatabase() {
+	public WelcomeDatabaseFrame() {
 		name = initialize();
 	}
 	public String getName() {

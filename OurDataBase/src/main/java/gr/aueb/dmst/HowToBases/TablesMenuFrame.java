@@ -16,7 +16,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-public class TablesMenu extends JFrame {
+public class TablesMenuFrame extends JFrame {
 
 	private JPanel contentPane;
 
@@ -27,7 +27,7 @@ public class TablesMenu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TablesMenu frame = new TablesMenu();
+					TablesMenuFrame frame = new TablesMenuFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,11 +35,11 @@ public class TablesMenu extends JFrame {
 			}
 		});
 	}
-
+	
 	/**
 	 * Create the frame.
 	 */
-	public TablesMenu() {
+	public TablesMenuFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
