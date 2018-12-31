@@ -3,12 +3,17 @@ package gr.aueb.dmst.HowToBases;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class AskForTableNameFrame extends JFrame {
 
@@ -36,21 +41,32 @@ public class AskForTableNameFrame extends JFrame {
 	 */
 	public AskForTableNameFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 425, 200);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblTheNameTha = new JLabel("The name that you have chosen for your table is:");
-		lblTheNameTha.setBounds(58, 0, 321, 142);
-		lblTheNameTha.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		contentPane.add(lblTheNameTha);
+		JLabel askForNameLabel = new JLabel("How would you like to name this table?");
+		askForNameLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		askForNameLabel.setBounds(25, 40, 300, 30);
+		askForNameLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		contentPane.add(askForNameLabel);
 		
 		tableName = new JTextField();
-		tableName.setBounds(86, 121, 253, 68);
+		tableName.setBounds(25, 100, 200, 30);
 		contentPane.add(tableName);
 		tableName.setColumns(10);
+		
+		JButton continueButton = new JButton("CONTINUE");
+		continueButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		continueButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		continueButton.setBounds(250, 100, 120, 30);
+		getContentPane().add(continueButton);
 	}
 
 }
