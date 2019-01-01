@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
-public class WelcomeDatabaseFrame { //implements Runnable {
+public class WelcomeDatabaseFrame { 
 
 	private JFrame frame;
 	private JTextField nameTextField;
@@ -34,7 +34,9 @@ public class WelcomeDatabaseFrame { //implements Runnable {
 			}
 		});
 	}
-
+	public void setWDVisible(boolean b) {
+		frame.setVisible(b);
+	}
 	/**
 	 * Create the application.
 	 */
@@ -75,7 +77,9 @@ public class WelcomeDatabaseFrame { //implements Runnable {
 		continueButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		continueButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+					TablesMenuFrame t = new TablesMenuFrame();
+					t.setVisible(true);
+					frame.dispose();
 			}
 		});
 		continueButton.setBounds(250, 175, 120, 30);

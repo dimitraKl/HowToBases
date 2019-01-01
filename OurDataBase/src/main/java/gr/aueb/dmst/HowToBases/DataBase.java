@@ -6,7 +6,7 @@ import java.util.Scanner;
 //import javax.swing.JFrame;
 import java.util.ArrayList;
 
-public class DataBase { // extends JFrame {
+public class DataBase { 
 
 	private String dataBaseName;
 	private ArrayList<Table> tables = new ArrayList<Table>();
@@ -45,20 +45,14 @@ public class DataBase { // extends JFrame {
 		this.dataBaseName = dataBaseName;
 	}
 
-	public String askForName() {
-		System.out.println("Welcome to your data base. How would you like to name it?");
-		Scanner sc = new Scanner(System.in);
-		String dataBaseName = sc.nextLine();
 
+	public String askForName() {
+		WelcomeDatabaseFrame wd = new WelcomeDatabaseFrame();
+		wd.setWDVisible(true);
+
+		String dataBaseName = wd.getName();
 		return dataBaseName;
-	}
-	//public String askForName() {
-		// WelcomeDatabase wd = new WelcomeDatabase();
-		//wd.setVisible(true);
-//		String dataBaseName = wd.getName();
-		
-//		return dataBaseName;
-//	}
+}
 
 	public void chooseTablesFunction() {
 		int choice = Menu.tablesMenu();
