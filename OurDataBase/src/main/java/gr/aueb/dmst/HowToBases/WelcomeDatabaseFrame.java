@@ -77,8 +77,9 @@ public class WelcomeDatabaseFrame {
 		continueButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		continueButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					TablesMenuFrame t = new TablesMenuFrame();
-					t.setVisible(true);
+					AskForTableNameFrame ask = new AskForTableNameFrame();
+					ask.tableNameFrame();
+					ask.setVisible(true);
 					frame.dispose();
 			}
 		});

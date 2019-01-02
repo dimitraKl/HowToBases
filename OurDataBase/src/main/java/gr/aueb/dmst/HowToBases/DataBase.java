@@ -46,11 +46,11 @@ public class DataBase {
 	}
 
 
-	public String askForName() {
+	public String askForDBName() {
 		WelcomeDatabaseFrame wd = new WelcomeDatabaseFrame();
 		wd.setWDVisible(true);
 
-		String dataBaseName = wd.getName();
+		dataBaseName = wd.getName();
 		return dataBaseName;
 }
 

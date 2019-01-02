@@ -53,33 +53,40 @@ public class Table {
 	}
 
 	public String askForName() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("How would you like to name this table?");
-		return sc.nextLine();
+		AskForTableNameFrame ask = new AskForTableNameFrame();
 		
+		tableName = ask.getName();
+		return tableName;
 	}
 
 	public String[] askForCategories() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("How many categories would you like?");
-		int numberOfCategories = sc.nextInt();
+		
+		AskForCategoriesFrame ask = new AskForCategoriesFrame();
+	//	ask.setVisible(true);
+		int numberOfCategories = ask.getNumber();
+		
 		String[] categoriesNames = new String[numberOfCategories];
-
-		categoriesNames[0] = sc.nextLine();
+		
+		NameOfCategorieFrame name = new NameOfCategorieFrame();
+		name.askCategorieNameFrame();
+		name.setVisible(true);
+		//categoriesNames[0] = sc.nextLine(); 
+		categoriesNames[0] = name.getNameOfCat();
 		for (int i = 0; i < categoriesNames.length; i++) {
-			System.out.println("Give name of category " + (i+1) + ": ");
-			categoriesNames[i] = sc.nextLine();
+			name.askCategorieNameFrame();
+			name.setVisible(true);
+			categoriesNames[i] = name.getNameOfCat();
 		}
 		return categoriesNames;
 	}
 
 	public String askForReferencePoint(String[] categoriesNames) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Choose which category you want to be used as point of reference.");
+		AskForReferencePointFrame rp = new AskForReferencePointFrame();
+		rp.setVisible(true);
 		String referencePointName;
 		boolean found = false;
 		do {
-			referencePointName = sc.nextLine();
+			referencePointName = rp.getReferencePoint();
 			for(int i = 0; i < categoriesNames.length; i++) {
 				if (referencePointName.equals(categoriesNames[i])) {
 					found = true;
@@ -87,7 +94,10 @@ public class Table {
 				}
 			}
 			if (found == false) {
-				System.out.println("Invalid category name. Please try again.");
+				InvalidRefPointFrame inv = new InvalidRefPointFrame();
+				inv.setVisible(true);
+				rp = new AskForReferencePointFrame();
+				rp.setVisible(true);
 			}
 		} while(found == false);
 
