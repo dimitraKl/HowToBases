@@ -53,7 +53,7 @@ public class TablesMenuFrame extends JFrame {
 		tablesMenuLabel.setBounds(119, 20, 150, 30);
 		getContentPane().add(tablesMenuLabel);
 
-		JRadioButton addButton = new JRadioButton("Αdd an element to this table.");
+		JRadioButton addButton = new JRadioButton("Create a new table in your data base.");
 		addButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		addButton.setBounds(79, 60, 300, 25);
 		getContentPane().add(addButton);

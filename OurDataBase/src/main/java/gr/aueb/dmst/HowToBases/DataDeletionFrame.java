@@ -63,7 +63,7 @@ public class DataDeletionFrame extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.setBounds(281, 206, 120, 30);
 		contentPane.add(btnNewButton);
-		
-		
+			
 	}
+	
 }

@@ -67,7 +67,7 @@ public class Table {
 		
 		String[] categoriesNames = new String[numberOfCategories];
 		
-		NameOfCategorieFrame name = new NameOfCategorieFrame();
+		NameOfCategoryFrame name = new NameOfCategoryFrame();
 		name.askCategorieNameFrame();
 		name.setVisible(true);
 		//categoriesNames[0] = sc.nextLine(); 
@@ -140,7 +140,7 @@ public class Table {
 			if (returnValue == null) {
 				System.out.println("The chosen data element does not exist.\n"
 								 + "Please choose again.\nCurrently existing data: \n"
-						         + allData.toString() + "\n");
+						         + allData.toString() + "\n"); // Frame not finished"
 				chosenData = sc.nextLine();
 			}
 		} while(returnValue == null);

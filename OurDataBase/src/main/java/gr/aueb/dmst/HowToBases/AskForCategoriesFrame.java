@@ -69,7 +69,7 @@ public class AskForCategoriesFrame extends JFrame {
 		JButton continueButton = new JButton("CONTINUE");
 		continueButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NameOfCategorieFrame n = new NameOfCategorieFrame();
+				NameOfCategoryFrame n = new NameOfCategoryFrame();
 				n.askCategorieNameFrame();
 				n.setVisible(true);
 				dispose();

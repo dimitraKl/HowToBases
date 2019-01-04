@@ -91,7 +91,7 @@ public class Menu {
 
 		System.out.println("\n\n");
 		System.out.println("--- FUNCTIONS MENU ---");
-		System.out.println("Press 1 to edit a category in this data element. \n"
+		System.out.println("Press 1 to edit a category of this data element. \n"
 	    		         + "Press 2 to display a category of this data element. \n\n");
 		Scanner sc = new Scanner(System.in);
 		int choice = 0;

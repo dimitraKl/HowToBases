@@ -92,8 +92,8 @@ public class Data {
 				}
 			}
 			if (returnValue == -1) {
-				System.out.println("The chosen data element does not exist.\n"
-								 + "Please choose again.\nCurrently existing data: ");
+				System.out.println("The chosen category does not exist.\n"
+								 + "Please choose again.\nCurrently existing categories: ");
 				for (int i = 0; i < categoriesNames.length; i++) {
 					System.out.println(categoriesNames[i]);
 				}

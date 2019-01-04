@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class NameOfCategorieFrame extends JFrame {
+public class NameOfCategoryFrame extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField nameOfCatField;
@@ -27,7 +27,7 @@ public class NameOfCategorieFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					NameOfCategorieFrame frame = new NameOfCategorieFrame();
+					NameOfCategoryFrame frame = new NameOfCategoryFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class NameOfCategorieFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public NameOfCategorieFrame() { 
+	public NameOfCategoryFrame() { 
 	}
 	public void askCategorieNameFrame() { // could show num of cat if it is received as parameter
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,7 +52,7 @@ public class NameOfCategorieFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel askForCategoriesLabel = new JLabel("Give name of categorie :");
+		JLabel askForCategoriesLabel = new JLabel("Give name of category:");
 		askForCategoriesLabel.setBounds(10, 50, 180, 30);
 		askForCategoriesLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		askForCategoriesLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
