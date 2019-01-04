@@ -54,7 +54,7 @@ public class Table {
 
 	public String askForName() {
 		AskForTableNameFrame ask = new AskForTableNameFrame();
-		
+		ask.setVisible(true);
 		tableName = ask.getName();
 		return tableName;
 	}
@@ -62,18 +62,17 @@ public class Table {
 	public String[] askForCategories() {
 		
 		AskForCategoriesFrame ask = new AskForCategoriesFrame();
-	//	ask.setVisible(true);
+		ask.setVisible(true);
 		int numberOfCategories = ask.getNumber();
 		
 		String[] categoriesNames = new String[numberOfCategories];
 		
-		NameOfCategoryFrame name = new NameOfCategoryFrame();
-		name.askCategorieNameFrame();
-		name.setVisible(true);
+		NameOfCategoryFrame name = new NameOfCategoryFrame(1);
 		//categoriesNames[0] = sc.nextLine(); 
 		categoriesNames[0] = name.getNameOfCat();
+		
 		for (int i = 0; i < categoriesNames.length; i++) {
-			name.askCategorieNameFrame();
+			name.askCategorieNameFrame(i+1);
 			name.setVisible(true);
 			categoriesNames[i] = name.getNameOfCat();
 		}

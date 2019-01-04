@@ -42,8 +42,9 @@ public class AskForCategoriesFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public AskForCategoriesFrame() {
+		number = numCategoriesFrame();
 	}
-	public void numCategoriesFrame() {
+	public int numCategoriesFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 425, 200);
 		contentPane = new JPanel();
@@ -61,22 +62,19 @@ public class AskForCategoriesFrame extends JFrame {
 		numOfCatField.setBounds(25, 100, 200, 30);
 		contentPane.add(numOfCatField);
 		numOfCatField.setColumns(10);
-	//	try {
+	
 		number = Integer.parseInt(numOfCatField.getText());
-	//	} (catch NumberFormatException ex) {
-		//	number = 0;
-		//}
+		
 		JButton continueButton = new JButton("CONTINUE");
 		continueButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				NameOfCategoryFrame n = new NameOfCategoryFrame();
-				n.askCategorieNameFrame();
-				n.setVisible(true);
 				dispose();
 			}
 		});
 		continueButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		continueButton.setBounds(250, 100, 120, 30);
 		getContentPane().add(continueButton);
+		
+		return number;
 	}
 }

@@ -42,12 +42,12 @@ public class AskForTableNameFrame extends JFrame {
 		return name;
 	}
 	public AskForTableNameFrame() {
-		
+		name = tableNameFrame();
 	}
 	/**
 	 * Create the frame.
 	 */
-	public void tableNameFrame() {
+	public String tableNameFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 425, 200);
 		contentPane = new JPanel();
@@ -65,20 +65,19 @@ public class AskForTableNameFrame extends JFrame {
 		tableName.setBounds(25, 100, 200, 30);
 		contentPane.add(tableName);
 		tableName.setColumns(10);
-		name = tableName.getText();
+		
 		
 		JButton continueButton = new JButton("CONTINUE");
 		continueButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				AskForCategoriesFrame ask = new AskForCategoriesFrame();
-				ask.numCategoriesFrame();
-				ask.setVisible(true);
 				dispose();
 			}
 		});
 		continueButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		continueButton.setBounds(250, 100, 120, 30);
 		getContentPane().add(continueButton);
+		
+		return tableName.getText();
 	}
 
 }

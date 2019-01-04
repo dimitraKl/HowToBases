@@ -27,7 +27,7 @@ public class NameOfCategoryFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					NameOfCategoryFrame frame = new NameOfCategoryFrame();
+					NameOfCategoryFrame frame = new NameOfCategoryFrame(0);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,12 +39,14 @@ public class NameOfCategoryFrame extends JFrame {
 		return nameOfCat;
 	}
 
+	
 	/**
 	 * Create the frame.
 	 */
-	public NameOfCategoryFrame() { 
+	public NameOfCategoryFrame(int n) { 
+		nameOfCat = askCategorieNameFrame(n);
 	}
-	public void askCategorieNameFrame() { // could show num of cat if it is received as parameter
+	public String askCategorieNameFrame(int n) { // could show num of cat if it is received as parameter
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 425, 200);
 		contentPane = new JPanel();
@@ -52,7 +54,8 @@ public class NameOfCategoryFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel askForCategoriesLabel = new JLabel("Give name of category:");
+		JLabel askForCategoriesLabel = new JLabel("Give name of " + Integer.toString(n) + " category:");
+		
 		askForCategoriesLabel.setBounds(10, 50, 180, 30);
 		askForCategoriesLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		askForCategoriesLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -62,7 +65,6 @@ public class NameOfCategoryFrame extends JFrame {
 		nameOfCatField.setBounds(199, 50, 200, 30);
 		contentPane.add(nameOfCatField);
 		nameOfCatField.setColumns(10);
-		nameOfCat = nameOfCatField.getText();
 		
 		JButton continueButton = new JButton("CONTINUE");
 		continueButton.setBounds(250, 100, 120, 30);
@@ -75,6 +77,7 @@ public class NameOfCategoryFrame extends JFrame {
 		getContentPane().add(continueButton);
 		
 		
+		
+		return nameOfCatField.getText();
 	}
-
 }
