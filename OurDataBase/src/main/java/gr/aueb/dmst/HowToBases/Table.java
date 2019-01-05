@@ -1,6 +1,6 @@
 package gr.aueb.dmst.HowToBases;
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -135,10 +135,10 @@ public class Table {
 	}
 
 	public Data chooseData() {
-		System.out.println("Choose an element of data.\nCurrently existing data: \n"
-				+ allData.toString() + "\n");
-		Scanner sc = new Scanner(System.in);
-		String chosenData = sc.nextLine();
+		String chosenData = JOptionPane.showInputDialog("Choose an element of data.\n"
+													   + "Currently existing data: \n"
+													   + allData.toString() + "\n");
+		
 		Data returnValue = null;
 		do {
 			for(Data d : allData) {
@@ -148,10 +148,10 @@ public class Table {
 				}
 			}
 			if (returnValue == null) {
-				System.out.println("The chosen data element does not exist.\n"
-								 + "Please choose again.\nCurrently existing data: \n"
-						         + allData.toString() + "\n"); // Frame not finished"
-				chosenData = sc.nextLine();
+				chosenData = JOptionPane.showInputDialog("The chosen data element does not exist.\n"
+														+ "Please choose again.\n"
+														+ "Currently existing data: \n"
+														+ allData.toString() + "\n"); //jFrame not finished
 			}
 		} while(returnValue == null);
 

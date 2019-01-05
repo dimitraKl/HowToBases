@@ -2,7 +2,7 @@ package gr.aueb.dmst.HowToBases;
 
 
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -52,9 +52,10 @@ public class DataBase {
 	public String askForDBName() {
 	//	WelcomeDatabaseFrame wd = new WelcomeDatabaseFrame();
 	//	wd.setWDVisible(true);
-		dataBaseName = JOptionPane.showInputDialog(null,
+		dataBaseName = JOptionPane.showInputDialog(
 		        "Welcome to your DataBase.\nHow would you like to name it?");
-	//	dataBaseName = wd.getName();
+				
+		//	dataBaseName = wd.getName();
 		return dataBaseName;
 }
 
@@ -79,10 +80,9 @@ public class DataBase {
 	}
 
 	public Table chooseTable() {
-		System.out.println("Choose a table.\nCurrently existing tables: \n"
+		String chosenTable = JOptionPane.showInputDialog("Choose a table.\nCurrently existing tables: \n"
 							+ tables.toString() + "\n");
-		Scanner sc = new Scanner(System.in);
-		String chosenTable = sc.nextLine();
+		
 		Table returnValue = null;
 		do {
 			for(Table t : tables) {
@@ -92,10 +92,10 @@ public class DataBase {
 				}
 			}
 			if (returnValue == null) {
-				System.out.println("The chosen table does not exist.\n"
+				chosenTable = JOptionPane.showInputDialog("The chosen table does not exist.\n"
 								 + "Please choose again.\nCurrently existing tables: \n"
 						         + tables.toString() + "\n");
-				chosenTable = sc.nextLine();
+				
 			}
 		} while(returnValue == null);
 
