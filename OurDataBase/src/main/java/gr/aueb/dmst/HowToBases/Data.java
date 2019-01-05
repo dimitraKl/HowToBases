@@ -1,6 +1,6 @@
 package gr.aueb.dmst.HowToBases;
 
-//import java.util.Scanner;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -73,19 +73,18 @@ public class Data {
 	    		dataByColumn = f.editData(dataByColumn, chooseData(categoriesNames));
 	            break;
 
-	    case 2: JOptionPane.showMessageDialog(null,this.dataByColumn[chooseData(categoriesNames)]);
+	    case 2: System.out.println(this.dataByColumn[chooseData(categoriesNames)]);
 	    		break;
 	    }
 	}
 
 	public int chooseData(String[] categoriesNames) {
-		
-		String message = "Choose a category.\nCurrently existing categories: \n";
+		System.out.println("Choose a category.\nCurrently existing categories: \n");
 		for (int i = 0; i < categoriesNames.length; i++) {
-			message += (categoriesNames[i] + "\n");
-		} 
-		String chosenCategory = JOptionPane.showInputDialog(message);
-
+			System.out.println(categoriesNames[i]);
+		}
+		Scanner sc = new Scanner(System.in);
+		String chosenCategory = sc.nextLine();
 		int returnValue = -1;
 		do {
 			for(int i = 0; i < categoriesNames.length; i++) {
@@ -95,12 +94,12 @@ public class Data {
 				}
 			}
 			if (returnValue == -1) {
-				message = "The chosen category does not exist.\n"
-								 + "Please choose again.\nCurrently existing categories: ";
+				System.out.println("The chosen category does not exist.\n"
+								 + "Please choose again.\nCurrently existing categories: ");
 				for (int i = 0; i < categoriesNames.length; i++) {
-					message += (categoriesNames[i] + "\n");
+					System.out.println(categoriesNames[i]);
 				}
-				chosenCategory = JOptionPane.showInputDialog(message);
+				chosenCategory = sc.nextLine();
 			}
 		} while(returnValue == -1);
 
@@ -112,12 +111,10 @@ public class Data {
 		return this.dataByColumn[getReferencePoint()];
 	}
 
-	public String toMyString() {
-		String message= "";
+	public void toMyString() {
 		for (int i = 0; i < this.getDataByColumn().length; i++) {
-			message += (this.getDataByColumn()[i] + " ");
+			System.out.print(this.getDataByColumn()[i] + " ");
 		}
-		return message;
 	}
 
 }
