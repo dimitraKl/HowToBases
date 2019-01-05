@@ -1,6 +1,9 @@
 package gr.aueb.dmst.HowToBases;
 
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
 import java.util.ArrayList;
 
 public class Table {
@@ -53,39 +56,44 @@ public class Table {
 	}
 
 	public String askForName() {
-		AskForTableNameFrame ask = new AskForTableNameFrame();
-		ask.setVisible(true);
-		tableName = ask.getName();
+	//	AskForTableNameFrame ask = new AskForTableNameFrame();
+	//	ask.setVisible(true);
+	//	tableName = ask.getName();
+		
+		tableName = JOptionPane.showInputDialog(null, "How would you like to name this table?");
 		return tableName;
 	}
 
 	public String[] askForCategories() {
 		
-		AskForCategoriesFrame ask = new AskForCategoriesFrame();
-		ask.setVisible(true);
-		int numberOfCategories = ask.getNumber();
+	//	AskForCategoriesFrame ask = new AskForCategoriesFrame();
+	//	ask.setVisible(true);
+		String catNumber = JOptionPane.showInputDialog(null,"How many categories would you like?");
+		
+		int numberOfCategories = Integer.parseInt(catNumber);
 		
 		String[] categoriesNames = new String[numberOfCategories];
 		
-		NameOfCategoryFrame name = new NameOfCategoryFrame(1);
+	//	NameOfCategoryFrame name = new NameOfCategoryFrame(1);
 		//categoriesNames[0] = sc.nextLine(); 
-		categoriesNames[0] = name.getNameOfCat();
+		 String nameOfCategorie = JOptionPane.showInputDialog(null, "Give name of category 1 :");
+		categoriesNames[0] = nameOfCategorie;
 		
 		for (int i = 0; i < categoriesNames.length; i++) {
-			name.askCategorieNameFrame(i+1);
-			name.setVisible(true);
-			categoriesNames[i] = name.getNameOfCat();
+		//	name.askCategorieNameFrame(i+1);
+		//	name.setVisible(true);
+			categoriesNames[i] = JOptionPane.showInputDialog(null, "Give name of category " + (i+1) + " : ");
 		}
 		return categoriesNames;
 	}
 
 	public String askForReferencePoint(String[] categoriesNames) {
-		AskForReferencePointFrame rp = new AskForReferencePointFrame();
-		rp.setVisible(true);
-		String referencePointName;
+	//	AskForReferencePointFrame rp = new AskForReferencePointFrame();
+	//	rp.setVisible(true);
+		String referencePointName = JOptionPane.showInputDialog(null, "Choose which category you want to be used \n as point of reference.");
 		boolean found = false;
 		do {
-			referencePointName = rp.getReferencePoint();
+			
 			for(int i = 0; i < categoriesNames.length; i++) {
 				if (referencePointName.equals(categoriesNames[i])) {
 					found = true;
@@ -93,10 +101,13 @@ public class Table {
 				}
 			}
 			if (found == false) {
-				InvalidRefPointFrame inv = new InvalidRefPointFrame();
-				inv.setVisible(true);
-				rp = new AskForReferencePointFrame();
-				rp.setVisible(true);
+			//	InvalidRefPointFrame inv = new InvalidRefPointFrame();
+			//	inv.setVisible(true);
+			//	rp = new AskForReferencePointFrame();
+			//	rp.setVisible(true);
+				JOptionPane.showMessageDialog(null,"Invalid category name. Please try again." ,null, JOptionPane.ERROR_MESSAGE);
+				referencePointName = JOptionPane.showInputDialog(null, "Choose which category you want to be used \n as point of reference.");
+				
 			}
 		} while(found == false);
 

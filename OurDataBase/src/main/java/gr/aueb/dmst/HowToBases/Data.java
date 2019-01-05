@@ -2,6 +2,8 @@ package gr.aueb.dmst.HowToBases;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Data {
 
 	private String referencePointName;
@@ -55,10 +57,10 @@ public class Data {
 
 	public String[] askForDataByColumn(String[] categoriesNames) {
 		String[] dataByColumn = new String[categoriesNames.length];
-		Scanner sc = new Scanner(System.in);
+		//Scanner sc = new Scanner(System.in);
 		for (int i = 0; i < categoriesNames.length; i++) {
-			System.out.println("Give " + categoriesNames[i] + ": ");
-			dataByColumn[i] = sc.nextLine();
+		//	System.out.println("Give " + categoriesNames[i] + ": ");
+			dataByColumn[i] = JOptionPane.showInputDialog(null, "Give " + categoriesNames[i] + ": ");
 		}
 		return dataByColumn;
 	}

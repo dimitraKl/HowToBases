@@ -3,6 +3,9 @@ package gr.aueb.dmst.HowToBases;
 
 
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
 //import javax.swing.JFrame;
 import java.util.ArrayList;
 
@@ -47,10 +50,11 @@ public class DataBase {
 
 
 	public String askForDBName() {
-		WelcomeDatabaseFrame wd = new WelcomeDatabaseFrame();
-		wd.setWDVisible(true);
-
-		dataBaseName = wd.getName();
+	//	WelcomeDatabaseFrame wd = new WelcomeDatabaseFrame();
+	//	wd.setWDVisible(true);
+		dataBaseName = JOptionPane.showInputDialog(null,
+		        "Welcome to your DataBase.\nHow would you like to name it?");
+	//	dataBaseName = wd.getName();
 		return dataBaseName;
 }
 

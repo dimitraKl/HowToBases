@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -65,10 +67,10 @@ public class WelcomeDatabaseFrame {
 		JLabel askForNameLabel = new JLabel("How would you like to name it?");
 		askForNameLabel.setBounds(30, 100, 200, 30);
 		askForNameLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		frame.getContentPane().add(askForNameLabel);
-		
+	    frame.getContentPane().add(askForNameLabel);
+
 		nameTextField = new JTextField();
-		nameTextField.setBounds(230, 100, 150, 30);
+	    nameTextField.setBounds(230, 100, 150, 30);
 		frame.getContentPane().add(nameTextField);
 		nameTextField.setColumns(10);
 		name = nameTextField.getText();
@@ -77,10 +79,7 @@ public class WelcomeDatabaseFrame {
 		continueButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		continueButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					AskForTableNameFrame ask = new AskForTableNameFrame();
-					ask.tableNameFrame();
-					ask.setVisible(true);
-					frame.dispose();
+				frame.dispose();
 			}
 		});
 		continueButton.setBounds(250, 175, 120, 30);
