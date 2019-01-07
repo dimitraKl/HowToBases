@@ -68,7 +68,7 @@ public class Functions {
 	public ArrayList<Table> deleteTable(ArrayList<Table> dataBase, Table givenTable ) {
 
 		String choice = JOptionPane.showInputDialog("You have chosen to delete the table " + givenTable.getTableName() 
-					+ " Are you sure you want to proceed with the deletion? Please type 'Yes' or 'No'. ");
+					+ " \nAre you sure you want to proceed with the deletion? Please type 'Yes' or 'No'. ");
 		
 		if (choice == null || (choice != null && ("".equals(choice)))) {
 			    System.exit(0);

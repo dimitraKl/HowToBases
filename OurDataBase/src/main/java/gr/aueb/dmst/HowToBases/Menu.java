@@ -8,14 +8,13 @@ public class Menu {
 	
 	public static int chooseDataBaseMenu() {
 		
-		String txt = "What would you like to do?\n";
 		JRadioButton button1 = new JRadioButton("Create a new Data Base.");
 		JRadioButton button2 = new JRadioButton("Open a Data Base which is saved in your computer.");
 		
 		JPanel panel = new JPanel();
 		panel.add(button1);
 		panel.add(button2);
-		JOptionPane.showMessageDialog(null,panel );
+		JOptionPane.showMessageDialog(null,panel,"What would you like to do?",JOptionPane.PLAIN_MESSAGE );
 		int choice = 0;
 		if (button1.isSelected()) {
 			choice = 1;
