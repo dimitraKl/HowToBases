@@ -60,9 +60,7 @@ public class Data {
 		//	System.out.println("Give " + categoriesNames[i] + ": ");
 			dataByColumn[i] = JOptionPane.showInputDialog(null, "Give " + categoriesNames[i] + ": ");
 			
-			if (2 == JOptionPane.CANCEL_OPTION) {
-				JOptionPane.showMessageDialog(null, "You pressed cancel");
-			} else if (dataByColumn[i] == null || (dataByColumn[i] != null && ("".equals(dataByColumn[i])))) {
+			if (dataByColumn[i] == null || (dataByColumn[i] != null && ("".equals(dataByColumn[i])))) {
 				    System.exit(0);
 			}
 			
@@ -91,9 +89,7 @@ public class Data {
 		} 
 		String chosenCategory = JOptionPane.showInputDialog(message);
 		
-		if (2 == JOptionPane.CANCEL_OPTION) {
-			JOptionPane.showMessageDialog(null, "You pressed cancel");
-		} else if (chosenCategory == null || (chosenCategory != null && ("".equals(chosenCategory)))) {
+		if (chosenCategory == null || (chosenCategory != null && ("".equals(chosenCategory)))) {
 			    System.exit(0);
 		}
 
@@ -113,9 +109,7 @@ public class Data {
 				}
 				chosenCategory = JOptionPane.showInputDialog(message);
 				
-				if (2 == JOptionPane.CANCEL_OPTION) {
-					JOptionPane.showMessageDialog(null, "You pressed cancel");
-				} else if (chosenCategory == null || (chosenCategory != null && ("".equals(chosenCategory)))) {
+				if (chosenCategory == null || (chosenCategory != null && ("".equals(chosenCategory)))) {
 					    System.exit(0);
 				}
 				

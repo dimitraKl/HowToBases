@@ -60,15 +60,10 @@ public class Table {
 	}
 
 	public String askForName() {
-	//	AskForTableNameFrame ask = new AskForTableNameFrame();
-	//	ask.setVisible(true);
-	//	tableName = ask.getName();
 		
 		tableName = JOptionPane.showInputDialog(null, "How would you like to name this table?");
 		
-		if (2 == JOptionPane.CANCEL_OPTION) {
-			JOptionPane.showMessageDialog(null, "You pressed cancel");
-		} else if (tableName == null || (tableName != null && ("".equals(tableName)))) {
+		if (tableName == null || (tableName != null && ("".equals(tableName)))) {
 			    System.exit(0);
 		}
 		
@@ -77,13 +72,9 @@ public class Table {
 
 	public String[] askForCategories() {
 		
-	//	AskForCategoriesFrame ask = new AskForCategoriesFrame();
-	//	ask.setVisible(true);
 		String catNumber = JOptionPane.showInputDialog(null,"How many categories would you like?");
 		
-		if (2 == JOptionPane.CANCEL_OPTION) {
-			JOptionPane.showMessageDialog(null, "You pressed cancel");
-		} else if (catNumber == null || (catNumber != null && ("".equals(catNumber)))) {
+		if (catNumber == null || (catNumber != null && ("".equals(catNumber)))) {
 			    System.exit(0);
 		}
 		
@@ -91,26 +82,18 @@ public class Table {
 		
 		String[] categoriesNames = new String[numberOfCategories];
 		
-	//	NameOfCategoryFrame name = new NameOfCategoryFrame(1);
-		//categoriesNames[0] = sc.nextLine(); 
-		 String nameOfCategorie = JOptionPane.showInputDialog(null, "Give name of category 1 :");
+		String nameOfCategory = JOptionPane.showInputDialog(null, "Give name of category 1 :");
 		 
-		 if (2 == JOptionPane.CANCEL_OPTION) {
-				JOptionPane.showMessageDialog(null, "You pressed cancel");
-		} else if (nameOfCategorie == null || (nameOfCategorie != null && ("".equals(nameOfCategorie)))) {
+		if (nameOfCategory == null || (nameOfCategory != null && ("".equals(nameOfCategory)))) {
 			    System.exit(0);
 		}
 		 
-		categoriesNames[0] = nameOfCategorie;
+		categoriesNames[0] = nameOfCategory;
 		
-		for (int i = 0; i < categoriesNames.length; i++) {
-		//	name.askCategorieNameFrame(i+1);
-		//	name.setVisible(true);
+		for (int i = 1; i < categoriesNames.length; i++) {
 			categoriesNames[i] = JOptionPane.showInputDialog(null, "Give name of category " + (i+1) + " : ");
 			
-			if (2 == JOptionPane.CANCEL_OPTION) {
-				JOptionPane.showMessageDialog(null, "You pressed cancel");
-			} else if (categoriesNames[i] == null || (categoriesNames[i] != null && ("".equals(categoriesNames[i])))) {
+			if (categoriesNames[i] == null || (categoriesNames[i] != null && ("".equals(categoriesNames[i])))) {
 			    System.exit(0);
 			}
 		 
@@ -119,13 +102,10 @@ public class Table {
 	}
 
 	public String askForReferencePoint(String[] categoriesNames) {
-	//	AskForReferencePointFrame rp = new AskForReferencePointFrame();
-	//	rp.setVisible(true);
+
 		String referencePointName = JOptionPane.showInputDialog(null, "Choose which category you want to be used \n as point of reference.");
 		
-		if (2 == JOptionPane.CANCEL_OPTION) {
-			JOptionPane.showMessageDialog(null, "You pressed cancel");
-		} else if (referencePointName == null || (referencePointName != null && ("".equals(referencePointName)))) {
+		if (referencePointName == null || (referencePointName != null && ("".equals(referencePointName)))) {
 		    System.exit(0);
 		}
 		
@@ -139,16 +119,10 @@ public class Table {
 				}
 			}
 			if (found == false) {
-			//	InvalidRefPointFrame inv = new InvalidRefPointFrame();
-			//	inv.setVisible(true);
-			//	rp = new AskForReferencePointFrame();
-			//	rp.setVisible(true);
 				JOptionPane.showMessageDialog(null,"Invalid category name. Please try again." ,null, JOptionPane.ERROR_MESSAGE);
 				referencePointName = JOptionPane.showInputDialog(null, "Choose which category you want to be used \n as point of reference.");
 				
-				if (2 == JOptionPane.CANCEL_OPTION) {
-					JOptionPane.showMessageDialog(null, "You pressed cancel");
-				} else if (referencePointName == null || (referencePointName != null && ("".equals(referencePointName)))) {
+				if (referencePointName == null || (referencePointName != null && ("".equals(referencePointName)))) {
 				    System.exit(0);
 				}
 				
@@ -183,9 +157,7 @@ public class Table {
 													   + "Currently existing data: \n"
 													   + allData.toString() + "\n");
 		
-		if (2 == JOptionPane.CANCEL_OPTION) {
-			JOptionPane.showMessageDialog(null, "You pressed cancel");
-		} else if (chosenData == null || (chosenData != null && ("".equals(chosenData)))) {
+		if (chosenData == null || (chosenData != null && ("".equals(chosenData)))) {
 		    System.exit(0);
 		}
 		
@@ -204,9 +176,7 @@ public class Table {
 														+ allData.toString() + "\n"); //jFrame not finished
 			}
 			
-			if (2 == JOptionPane.CANCEL_OPTION) {
-				JOptionPane.showMessageDialog(null, "You pressed cancel");
-			} else if (chosenData == null || (chosenData != null && ("".equals(chosenData)))) {
+			if (chosenData == null || (chosenData != null && ("".equals(chosenData)))) {
 			    System.exit(0);
 			}
 			
