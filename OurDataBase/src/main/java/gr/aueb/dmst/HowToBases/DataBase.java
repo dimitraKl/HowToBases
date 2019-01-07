@@ -57,9 +57,11 @@ public class DataBase {
 		dataBaseName = JOptionPane.showInputDialog(
 		        "Welcome to your DataBase.\nHow would you like to name it?");
 
-		if(dataBaseName == null || (dataBaseName != null && ("".equals(dataBaseName)))) {
-			    System.exit(0);
-		}
+//		if (2 == JOptionPane.CANCEL_OPTION) {
+//			JOptionPane.showMessageDialog(null, "You pressed cancel");
+//		} else if (dataBaseName == null || (dataBaseName != null && ("".equals(dataBaseName)))) {
+//			    System.exit(0);
+//		}
 		
 		
 		//	dataBaseName = wd.getName();
