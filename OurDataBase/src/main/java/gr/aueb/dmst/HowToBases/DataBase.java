@@ -2,6 +2,8 @@ package gr.aueb.dmst.HowToBases;
 
 
 
+
+
 // import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -54,7 +56,12 @@ public class DataBase {
 	//	wd.setWDVisible(true);
 		dataBaseName = JOptionPane.showInputDialog(
 		        "Welcome to your DataBase.\nHow would you like to name it?");
-				
+
+		if(dataBaseName == null || (dataBaseName != null && ("".equals(dataBaseName)))) {
+			    System.exit(0);
+		}
+		
+		
 		//	dataBaseName = wd.getName();
 		return dataBaseName;
 }
