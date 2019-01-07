@@ -51,6 +51,7 @@ public class Functions {
 					}
 				}
 			 	flag = false;
+			 	JOptionPane.showMessageDialog(null,"Deleted successfully.");
 
 		 	} else if (choice.equals("No")) {
 		 		JOptionPane.showMessageDialog(null,"You have chosen not to delete this element. ");
@@ -94,6 +95,7 @@ public class Functions {
 				 	}
 				}	
 				flag  = false;
+				JOptionPane.showMessageDialog(null,"Deleted successfully.");
 
 			} else if (choice.equals("No")) {
 				JOptionPane.showMessageDialog(null,"You have chosen not to delete the table: " + givenTable.getTableName() + " ");
