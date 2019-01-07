@@ -1,7 +1,6 @@
 package gr.aueb.dmst.HowToBases;
 
 import java.util.ArrayList;
-
 import org.junit.Test;
 
 public class TableTest {

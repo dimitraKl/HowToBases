@@ -55,15 +55,11 @@ public class Data {
 
 	public String[] askForDataByColumn(String[] categoriesNames) {
 		String[] dataByColumn = new String[categoriesNames.length];
-		//Scanner sc = new Scanner(System.in);
 		for (int i = 0; i < categoriesNames.length; i++) {
-		//	System.out.println("Give " + categoriesNames[i] + ": ");
 			dataByColumn[i] = JOptionPane.showInputDialog(null, "Give " + categoriesNames[i] + ": ");
-			
 			if (dataByColumn[i] == null || (dataByColumn[i] != null && ("".equals(dataByColumn[i])))) {
 				    System.exit(0);
 			}
-			
 		}
 		return dataByColumn;
 	}
@@ -82,13 +78,11 @@ public class Data {
 	}
 
 	public int chooseData(String[] categoriesNames) {
-		
 		String message = "Choose a category.\nCurrently existing categories: \n";
 		for (int i = 0; i < categoriesNames.length; i++) {
 			message += (categoriesNames[i] + "\n");
 		} 
 		String chosenCategory = JOptionPane.showInputDialog(message);
-		
 		if (chosenCategory == null || (chosenCategory != null && ("".equals(chosenCategory)))) {
 			    System.exit(0);
 		}
@@ -108,11 +102,9 @@ public class Data {
 					message += (categoriesNames[i] + "\n");
 				}
 				chosenCategory = JOptionPane.showInputDialog(message);
-				
 				if (chosenCategory == null || (chosenCategory != null && ("".equals(chosenCategory)))) {
 					    System.exit(0);
 				}
-				
 			}
 		} while(returnValue == -1);
 

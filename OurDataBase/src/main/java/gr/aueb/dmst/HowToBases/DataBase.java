@@ -8,16 +8,6 @@ public class DataBase {
 	private String dataBaseName;
 	private ArrayList<Table> tables = new ArrayList<Table>();
 
-
-	/**
-	 * Creation of the DataBase.
-	 * <p>
-	 * This method includes naming DataBases,
-	 * initializing the number of categories,
-	 * initializing the names of categories and puts them in categoriesNames table. All given by the user.
-	 * Creates an object of Menu class and calls menu method while passing the categoriesNames table to Menu.
-	 */
-
 	public String getDataBaseName() {
 		return dataBaseName;
 	}
@@ -48,17 +38,13 @@ public class DataBase {
 	}
 
 	public String askForDBName() {
-	//	WelcomeDatabaseFrame wd = new WelcomeDatabaseFrame();
-	//	wd.setWDVisible(true);
 		dataBaseName = JOptionPane.showInputDialog(
 		        "Welcome to your DataBase.\nHow would you like to name it?");
 
 		if (dataBaseName == null || (dataBaseName != null && ("".equals(dataBaseName)))) {
 			    System.exit(0);
 		}
-		
-		
-		//	dataBaseName = wd.getName();
+
 		return dataBaseName;
 	}
 
@@ -79,17 +65,15 @@ public class DataBase {
 	    case 4: f.toDisplayTable(tables);
 	    		break;
 	    }
-
 	}
 
 	public Table chooseTable() {
 		String chosenTable = JOptionPane.showInputDialog("Choose a table.\nCurrently existing tables: \n"
 							+ tables.toString() + "\n");
-		
 		if (chosenTable == null || (chosenTable != null && ("".equals(chosenTable)))) {
 			    System.exit(0);
 		}
-		
+
 		Table returnValue = null;
 		do {
 			for(Table t : tables) {
@@ -102,17 +86,13 @@ public class DataBase {
 				chosenTable = JOptionPane.showInputDialog("The chosen table does not exist.\n"
 								 + "Please choose again.\nCurrently existing tables: \n"
 						         + tables.toString() + "\n");
-				
 			}
-			
 			if (chosenTable == null || (chosenTable != null && ("".equals(chosenTable)))) {
 				    System.exit(0);
 			}
-			
 		} while(returnValue == null);
 
 		return returnValue;
 	}
 
 }
-

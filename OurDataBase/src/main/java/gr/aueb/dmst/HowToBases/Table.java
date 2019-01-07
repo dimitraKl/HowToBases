@@ -73,45 +73,36 @@ public class Table {
 	public String[] askForCategories() {
 		
 		String catNumber = JOptionPane.showInputDialog(null,"How many categories would you like?");
-		
 		if (catNumber == null || (catNumber != null && ("".equals(catNumber)))) {
 			    System.exit(0);
 		}
-		
 		int numberOfCategories = Integer.parseInt(catNumber);
-		
 		String[] categoriesNames = new String[numberOfCategories];
-		
-		String nameOfCategory = JOptionPane.showInputDialog(null, "Give name of category 1 :");
-		 
+
+		String nameOfCategory = JOptionPane.showInputDialog(null, "Give name of category 1 :"); 
 		if (nameOfCategory == null || (nameOfCategory != null && ("".equals(nameOfCategory)))) {
 			    System.exit(0);
 		}
-		 
+
 		categoriesNames[0] = nameOfCategory;
-		
 		for (int i = 1; i < categoriesNames.length; i++) {
 			categoriesNames[i] = JOptionPane.showInputDialog(null, "Give name of category " + (i+1) + " : ");
-			
 			if (categoriesNames[i] == null || (categoriesNames[i] != null && ("".equals(categoriesNames[i])))) {
 			    System.exit(0);
 			}
-		 
 		}
 		return categoriesNames;
 	}
 
 	public String askForReferencePoint(String[] categoriesNames) {
-
-		String referencePointName = JOptionPane.showInputDialog(null, "Choose which category you want to be used \n as point of reference.");
-		
+		String referencePointName = JOptionPane.showInputDialog(null,
+				"Choose which category you want to be used \n as point of reference.");
 		if (referencePointName == null || (referencePointName != null && ("".equals(referencePointName)))) {
 		    System.exit(0);
 		}
-		
+
 		boolean found = false;
 		do {
-			
 			for(int i = 0; i < categoriesNames.length; i++) {
 				if (referencePointName.equals(categoriesNames[i])) {
 					found = true;
@@ -119,13 +110,13 @@ public class Table {
 				}
 			}
 			if (found == false) {
-				JOptionPane.showMessageDialog(null,"Invalid category name. Please try again." ,null, JOptionPane.ERROR_MESSAGE);
-				referencePointName = JOptionPane.showInputDialog(null, "Choose which category you want to be used \n as point of reference.");
-				
+				JOptionPane.showMessageDialog(null,"Invalid category name. Please try again.",
+						null, JOptionPane.ERROR_MESSAGE);
+				referencePointName = JOptionPane.showInputDialog(null,
+						"Choose which category you want to be used \n as point of reference.");
 				if (referencePointName == null || (referencePointName != null && ("".equals(referencePointName)))) {
 				    System.exit(0);
 				}
-				
 			}
 		} while(found == false);
 
@@ -149,18 +140,16 @@ public class Table {
 	    case 4: f.toDisplayData(allData);
 	    		break;
 	    }
-
 	}
 
 	public Data chooseData() {
 		String chosenData = JOptionPane.showInputDialog("Choose an element of data.\n"
 													   + "Currently existing data: \n"
 													   + allData.toString() + "\n");
-		
 		if (chosenData == null || (chosenData != null && ("".equals(chosenData)))) {
 		    System.exit(0);
 		}
-		
+
 		Data returnValue = null;
 		do {
 			for(Data d : allData) {
@@ -173,13 +162,11 @@ public class Table {
 				chosenData = JOptionPane.showInputDialog("The chosen data element does not exist.\n"
 														+ "Please choose again.\n"
 														+ "Currently existing data: \n"
-														+ allData.toString() + "\n"); //jFrame not finished
+														+ allData.toString() + "\n");
 			}
-			
 			if (chosenData == null || (chosenData != null && ("".equals(chosenData)))) {
 			    System.exit(0);
 			}
-			
 		} while(returnValue == null);
 
 		return returnValue;
@@ -191,5 +178,3 @@ public class Table {
 	}
 
 }
-
-
