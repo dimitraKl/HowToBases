@@ -15,7 +15,7 @@ public class Menu {
 		JPanel panel = new JPanel();
 		panel.add(button1);
 		panel.add(button2);
-		JOptionPane.showMessageDialog(null,txt + panel);
+		JOptionPane.showMessageDialog(null,panel );
 		int choice = 0;
 		if (button1.isSelected()) {
 			choice = 1;
