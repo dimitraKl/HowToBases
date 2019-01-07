@@ -31,7 +31,12 @@ public class Functions {
 
 		String choice = JOptionPane.showInputDialog("Are you sure you want to delete this element? Please type 'Yes' or 'No'. ");
  
-		 
+		if (2 == JOptionPane.CANCEL_OPTION) {
+			JOptionPane.showMessageDialog(null, "You pressed cancel");
+		} else if (choice == null || (choice != null && ("".equals(choice)))) {
+			    System.exit(0);
+		}
+		
 		boolean flag = true; /* A flag is used so that we can control the while statement */ 
 
 		while (flag) {
@@ -52,6 +57,13 @@ public class Functions {
 		 		flag = false;
 		 	} else {
 		    	JOptionPane.showInputDialog("Please type 'Yes' or 'No' to continue, give your choice again. ");
+		    	
+		    	if (2 == JOptionPane.CANCEL_OPTION) {
+					JOptionPane.showMessageDialog(null, "You pressed cancel");
+				} else if (choice == null || (choice != null && ("".equals(choice)))) {
+					    System.exit(0);
+				}
+		    	
 		 	}
 		}
  		
@@ -62,7 +74,12 @@ public class Functions {
 
 		String choice = JOptionPane.showInputDialog("You have chosen to delete the table " + givenTable.getTableName() 
 					+ " Are you sure you want to proceed with the deletion? Please type 'Yes' or 'No'. ");
-
+		
+		if (2 == JOptionPane.CANCEL_OPTION) {
+			JOptionPane.showMessageDialog(null, "You pressed cancel");
+		} else if (choice == null || (choice != null && ("".equals(choice)))) {
+			    System.exit(0);
+		}
 
 		boolean flag = true; /* A flag is used so that we can control the while statement */ 
 
@@ -83,6 +100,13 @@ public class Functions {
 		 		flag = false;
 		 	} else {
 		 		choice = JOptionPane.showInputDialog("Please type 'Yes' or 'No' to give your choice again. ");
+		 		
+		 		if (2 == JOptionPane.CANCEL_OPTION) {
+					JOptionPane.showMessageDialog(null, "You pressed cancel");
+				} else if (choice == null || (choice != null && ("".equals(choice)))) {
+					    System.exit(0);
+				}
+		 		
 			}
 		}
 
@@ -92,6 +116,12 @@ public class Functions {
 	public String[] editData(String[] dataByColumn, int givenPosition) {
 		
 		String newElement = JOptionPane.showInputDialog("Change element " + dataByColumn[givenPosition] + " to : \n (Insert the new name)");
+		
+		if (2 == JOptionPane.CANCEL_OPTION) {
+			JOptionPane.showMessageDialog(null, "You pressed cancel");
+		} else if (newElement == null || (newElement != null && ("".equals(newElement)))) {
+			    System.exit(0);
+		}
 		
 		dataByColumn[givenPosition] = newElement;
 		JOptionPane.showMessageDialog(null,"Changes have been successfully made.");

@@ -61,11 +61,11 @@ public class DataBase {
 		dataBaseName = JOptionPane.showInputDialog(
 		        "Welcome to your DataBase.\nHow would you like to name it?");
 
-//		if (2 == JOptionPane.CANCEL_OPTION) {
-//			JOptionPane.showMessageDialog(null, "You pressed cancel");
-//		} else if (dataBaseName == null || (dataBaseName != null && ("".equals(dataBaseName)))) {
-//			    System.exit(0);
-//		}
+		if (2 == JOptionPane.CANCEL_OPTION) {
+			JOptionPane.showMessageDialog(null, "You pressed cancel");
+		} else if (dataBaseName == null || (dataBaseName != null && ("".equals(dataBaseName)))) {
+			    System.exit(0);
+		}
 		
 		
 		//	dataBaseName = wd.getName();
@@ -96,6 +96,12 @@ public class DataBase {
 		String chosenTable = JOptionPane.showInputDialog("Choose a table.\nCurrently existing tables: \n"
 							+ tables.toString() + "\n");
 		
+		if (2 == JOptionPane.CANCEL_OPTION) {
+			JOptionPane.showMessageDialog(null, "You pressed cancel");
+		} else if (chosenTable == null || (chosenTable != null && ("".equals(chosenTable)))) {
+			    System.exit(0);
+		}
+		
 		Table returnValue = null;
 		do {
 			for(Table t : tables) {
@@ -110,6 +116,13 @@ public class DataBase {
 						         + tables.toString() + "\n");
 				
 			}
+			
+			if (2 == JOptionPane.CANCEL_OPTION) {
+				JOptionPane.showMessageDialog(null, "You pressed cancel");
+			} else if (chosenTable == null || (chosenTable != null && ("".equals(chosenTable)))) {
+				    System.exit(0);
+			}
+			
 		} while(returnValue == null);
 
 		return returnValue;
