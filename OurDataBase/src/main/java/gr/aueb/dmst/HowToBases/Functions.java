@@ -106,15 +106,19 @@ public class Functions {
 	}
 
 	public void toDisplayTable(ArrayList<Table> a) {
+		String s = "";
 		for (Table i:a) {
-			JOptionPane.showMessageDialog(null, i.toString());
+			s += i.toString();
 		}
+		JOptionPane.showMessageDialog(null, s);
 	}
 
 	public void toDisplayData(ArrayList<Data> a) {
+		String s = "";
 		for (Data i:a) {
-			JOptionPane.showMessageDialog(null,i.toMyString());
+			s += i.toMyString();
 		}
+		JOptionPane.showMessageDialog(null, s);
 	}
 
 }
