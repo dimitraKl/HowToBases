@@ -2,8 +2,6 @@ package gr.aueb.dmst.HowToBases;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-//import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class Functions {

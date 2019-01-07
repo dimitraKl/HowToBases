@@ -1,14 +1,6 @@
 package gr.aueb.dmst.HowToBases;
 
-
-
-
-
-// import java.util.Scanner;
-
 import javax.swing.JOptionPane;
-
-//import javax.swing.JFrame;
 import java.util.ArrayList;
 
 public class DataBase { 
@@ -39,7 +31,7 @@ public class DataBase {
 	}
 
 	public void setTables(ArrayList<Table> tables) {
-		this.tables = tables;
+		this.tables = new ArrayList<Table>(tables);
 	}
 
 	public DataBase() {
@@ -52,7 +44,7 @@ public class DataBase {
 
 	public DataBase(String dataBaseName, ArrayList<Table> tables) {
 		this.dataBaseName = dataBaseName;
-		this.tables = tables;
+		this.tables = new ArrayList<Table>(tables);
 	}
 
 	public String askForDBName() {

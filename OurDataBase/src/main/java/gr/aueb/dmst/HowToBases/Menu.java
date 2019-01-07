@@ -1,16 +1,9 @@
 package gr.aueb.dmst.HowToBases;
 
-// import java.util.InputMismatchException;
-//import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-/**
- * Creates a menu of choices for processing the Database
- * @author minarioanna
- */
 public class Menu {
 	
 	public static int chooseDataBaseMenu() {
@@ -67,16 +60,6 @@ public class Menu {
 
 	}
 
-	/**
-	 * The menu of processing choices for the DataBase.
-	 * <p>
-	 * This method displays a menu from which the user can choose to
-	 * add, delete or edit an element of the DataBase.
-	 * Makes sure choice is 1,2 or 3.
-	 * Creates objects from classes Add, Delete, Edit so their methods can be used.
-	 * Transfers the categoriesNames table to other methods or classes.
-	 * @param categoriesNames a table with the names of the categories of the DataBase.
-	 */
 	public static int dataMenu() {
 	    
 	    JRadioButton button1 = new JRadioButton("Add an element to this table. \n");

@@ -1,7 +1,5 @@
 package gr.aueb.dmst.HowToBases;
 
-//import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class Data {
@@ -137,6 +135,7 @@ public class Data {
 		for (int i = 0; i < this.getDataByColumn().length; i++) {
 			message += (this.getDataByColumn()[i] + " ");
 		}
+		message += "\n";
 		return message;
 	}
 

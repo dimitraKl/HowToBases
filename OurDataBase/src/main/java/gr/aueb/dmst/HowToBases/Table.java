@@ -1,9 +1,6 @@
 package gr.aueb.dmst.HowToBases;
 
-// import java.util.Scanner;
-
 import javax.swing.JOptionPane;
-
 import java.util.ArrayList;
 
 public class Table {
@@ -42,7 +39,7 @@ public class Table {
 	}
 
 	public void setAllData(ArrayList<Data> allData) {
-		this.allData = allData;
+		this.allData = new ArrayList<Data>(allData);
 	}
 
 	public Table() {
@@ -59,7 +56,7 @@ public class Table {
 		this.tableName = tableName;
 		this.categoriesNames = categoriesNames;
 		this.referencePointName = referencePointName;
-		this.allData = allData;
+		this.allData = new ArrayList<Data>(allData);
 	}
 
 	public String askForName() {
