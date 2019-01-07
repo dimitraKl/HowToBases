@@ -10,8 +10,8 @@ public class Table {
 
 	private String tableName;
 	private String[] categoriesNames;
-    private ArrayList<Data> allData = new ArrayList<Data>();
     private String referencePointName;
+    private ArrayList<Data> allData = new ArrayList<Data>();
 
 	public String getTableName() {
 		return tableName;
@@ -28,14 +28,6 @@ public class Table {
 	public void setCategoriesNames(String[] categoriesNames) {
 		this.categoriesNames = categoriesNames;
 	}
-	
-	public ArrayList<Data> getAllData() {
-		return allData;
-	}
-
-	public void setAllData(ArrayList<Data> allData) {
-		this.allData = allData;
-	}
 
 	public String getReferencePointName() {
 		return referencePointName;
@@ -43,6 +35,14 @@ public class Table {
 
 	public void setReferencePointName(String referencePointName) {
 		this.referencePointName = referencePointName;
+	}
+
+	public ArrayList<Data> getAllData() {
+		return allData;
+	}
+
+	public void setAllData(ArrayList<Data> allData) {
+		this.allData = allData;
 	}
 
 	public Table() {
@@ -53,6 +53,13 @@ public class Table {
 		this.tableName = tableName;
 		this.categoriesNames = categoriesNames;
 		this.referencePointName = this.askForReferencePoint(this.categoriesNames);
+	}
+
+	public Table(String tableName, String[] categoriesNames, String referencePointName, ArrayList<Data> allData) {
+		this.tableName = tableName;
+		this.categoriesNames = categoriesNames;
+		this.referencePointName = referencePointName;
+		this.allData = allData;
 	}
 
 	public String askForName() {

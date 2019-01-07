@@ -50,6 +50,10 @@ public class DataBase {
 		this.dataBaseName = dataBaseName;
 	}
 
+	public DataBase(String dataBaseName, ArrayList<Table> tables) {
+		this.dataBaseName = dataBaseName;
+		this.tables = tables;
+	}
 
 	public String askForDBName() {
 	//	WelcomeDatabaseFrame wd = new WelcomeDatabaseFrame();
@@ -66,7 +70,7 @@ public class DataBase {
 		
 		//	dataBaseName = wd.getName();
 		return dataBaseName;
-}
+	}
 
 	public void chooseTablesFunction() {
 		int choice = Menu.tablesMenu();
