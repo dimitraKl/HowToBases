@@ -21,5 +21,10 @@
     <version>4.12</version>
     <scope>test</scope>
 </dependency>
+<dependency>
+    <groupId>checkstyle</groupId>
+    <artifactId>checkstyle</artifactId>
+    <version>5.0</version>
+</dependency>
   </dependencies>
 </project>
