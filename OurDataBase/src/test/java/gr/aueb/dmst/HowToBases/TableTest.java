@@ -5,15 +5,6 @@ import org.junit.Test;
 
 public class TableTest {
 
-    @Test
-    public void testTable() {
-    	
-    	String [] categoriesNames = {"name", "surname"};
-    	Table tableObj = new Table("Phone Book", categoriesNames);
-    	assert tableObj.getTableName() == "Phone Book" && tableObj.getCategoriesNames() == categoriesNames
-    	: "Error in the constructor";
-    	
-    }
     
     @Test
     public void testChooseData() {

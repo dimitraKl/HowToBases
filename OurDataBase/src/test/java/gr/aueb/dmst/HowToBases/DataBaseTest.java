@@ -14,18 +14,5 @@ public class DataBaseTest {
 		
 	}
 
-	@Test
-	public void testChooseTable() {
-		
-		String [] catNames = {"name", "surname"};
-		DataBase objDataBase = new DataBase();
-		Table dataobj1 = new Table("Names" , catNames);
-		ArrayList<Table> tables = new ArrayList<Table>();
-		tables.add(dataobj1);
-	    objDataBase.setTables(tables);
-		Table table = objDataBase.chooseTable();
-		assert objDataBase.getTables().contains(table) : "Invalid returned arraylist.";
-		
-	}
 
 }

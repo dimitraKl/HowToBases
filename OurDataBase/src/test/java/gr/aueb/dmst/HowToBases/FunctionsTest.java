@@ -59,23 +59,6 @@ public class FunctionsTest {
     	
     }
 
-    @Test
-    public void testDeleteTable() {
-    	
-    	String [] categoriesNames = {"name", "surname"};
-    	Table t1 = new Table("PhoneBook",categoriesNames);
-    	ArrayList<Table> tables = new ArrayList<Table>();
-    	tables.add(t1);
-    	int size1 = tables.size();
-    	Functions functionsObj = new Functions();
-    	tables = functionsObj.deleteTable(tables, t1);
-    	int size2 = tables.size();
-    	assert size1 - 1 == size2 : "Table was not deleted successfully. " +
-                                    "Make sure you have chosen 'Yes' when asked if you are sure you want to" +
-                                    "proceed with the deletion." +
-                                    "If so, there is an error in DeleteTable. ";
-    	
-    }
 
     @Test
     public void testEditData() {
