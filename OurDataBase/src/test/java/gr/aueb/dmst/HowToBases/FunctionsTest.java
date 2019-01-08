@@ -18,7 +18,7 @@ public class FunctionsTest {
         Functions functionsObj = new Functions();
         tables = functionsObj.addTable(tables);
         int size2 = tables.size();
-        assert size1 == size2 : "Error in AddTable" +
+        assert size1 + 1 == size2 : "Error in AddTable" +
                                 "The new table was not added succeflully"; 
         
     }
