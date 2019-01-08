@@ -31,7 +31,7 @@
       <configuration>
         <archive>
           <manifest>
-            <mainClass>gr.aueb.dmst.HowtoBases.MainDatabase</mainClass>
+            <mainClass>gr.aueb.dmst.HowtoBases.MainDataBase</mainClass>
           </manifest>
         </archive>
       </configuration>
