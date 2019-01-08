@@ -8,6 +8,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Creates CSV file.
+ * @author annas
+ */
+
 public class CSVFile {
 
 	private File myFile;
@@ -20,10 +25,22 @@ public class CSVFile {
 	public CSVFile() {
 
 	}
+	
+	/**
+	 * Constructor for class CSVFile.
+	 * @param fileName the name of the file.
+	 */
 
 	public CSVFile(String filename) {
 		this.myFile = new File(filename);
 	}
+	
+	/**
+	 * Writes CSV file for myDataBase.
+	 * @param myDataBase the database.
+	 * @exception IOException on input error.
+	 * @see IOException.
+	 */
 
 	public void writeToFile(DataBase myDataBase) {
 		try {
@@ -46,6 +63,13 @@ public class CSVFile {
 			System.err.println("Something occured while creating CSV file. " +e.getMessage());
 		}
 	}
+	
+	/**
+	 * Writes CSV file for categoriesNames.
+	 * @param bw an object type BufferedWriter used to write the file.
+	 * @param categoriesNames a table with the names of the categories of tables.
+	 * @throws IOException.
+	 */
 
 	public void writeCategories(BufferedWriter bw, String[] categoriesNames) throws IOException {
 		for (int i = 0; i < categoriesNames.length; i++) {
@@ -57,6 +81,13 @@ public class CSVFile {
 			}
 		}
 	}
+	
+	/**
+	 * Writes CSV file for dataByColumn.
+	 * @param bw an object type BufferedWriter used to write the file.
+	 * @param dataByColumn a table with elements of each category of tables.
+	 * @throws IOException.
+	 */
 
 	public void writeData(BufferedWriter bw, String[] dataByColumn) throws IOException {
 		for (int i = 0; i < dataByColumn.length; i++) {
@@ -68,10 +99,21 @@ public class CSVFile {
 			}
 		}
 	}
+	
+	/**
+	 * Deletes CSV file.
+	 */
 
 	public void deleteCSVFile() {
 		myFile.delete();
 	}
+	
+	/**
+	 * Reads CSV file of the DataBase.
+	 * @param filename the name of the file.
+	 * @return DataBase the database.
+	 * @exception IOException.
+	 */
 
 	public DataBase readFromFile(String filename){
 		String dataBaseName = "";
@@ -97,6 +139,13 @@ public class CSVFile {
 		}
 		return new DataBase(dataBaseName, tables);
 	}
+	
+	/**
+	 * Reads CSV file for tables's tables.
+	 * @param br an object type BufferedReader used to read the file.
+	 * @return br an object type BufferedReader used to read the file.
+	 * @throws IOException
+	 */
 
 	public BufferedReader readTable(BufferedReader br) throws IOException {
 		String tableName = "";
@@ -121,6 +170,14 @@ public class CSVFile {
 		allData.clear();
 		return br;
     }
+	
+	/**
+	 * Reads CSV file of dataByColumn.
+	 * @param br an object type BufferedReader used to read the file.
+	 * @param referencePointName the name of the reference point of dataByColumn.
+	 * @return br an object type BufferedReader used to read the file.
+	 * @throws IOException
+	 */
 
 	public BufferedReader readData(BufferedReader br, String referencePointName) throws IOException {
 		String[] dataByColumn;

@@ -3,8 +3,20 @@ package gr.aueb.dmst.HowToBases;
 import java.io.File;
 import javax.swing.JOptionPane;
 
-public class MainDataBase {
+/**
+ * Runs the database program.
+ * @author annas
+ *
+ */
 
+public class MainDataBase {
+	
+	/**
+	 * Calls class Menu to chose if the user wants to create a new database or edit an existing
+	 * database using CSV file.
+	 * Creates the database and its CSV file.
+	 * @param args
+	 */
 
 	public static void main(String[] args) {
 		int choice = Menu.chooseDataBaseMenu();

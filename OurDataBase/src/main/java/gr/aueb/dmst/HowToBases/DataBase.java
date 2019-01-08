@@ -3,6 +3,11 @@ package gr.aueb.dmst.HowToBases;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
+/**
+ * Creates the DataBase.
+ * Creates and initializes the name of the database and the type Table tables.
+ */
+
 public class DataBase { 
 
 	private String dataBaseName;
@@ -36,6 +41,11 @@ public class DataBase {
 		this.dataBaseName = dataBaseName;
 		this.tables = new ArrayList<Table>(tables);
 	}
+	
+	/**
+	 * Asks the user to give a name for the database.
+	 * @return dataBaseName the name of the database.
+	 */
 
 	public String askForDBName() {
 		dataBaseName = JOptionPane.showInputDialog(
@@ -47,6 +57,10 @@ public class DataBase {
 
 		return dataBaseName;
 	}
+	
+	/**
+	 * Calls class Menu and manages the user's choice on table tables.
+	 */
 
 	public void chooseTablesFunction() {
 		int choice = Menu.tablesMenu();
@@ -66,6 +80,13 @@ public class DataBase {
 	    		break;
 	    }
 	}
+	
+	/**
+	 * Displays the existing tables and asks the user to choose.
+	 * If the table exists, it returns the chosen table from table tables, 
+	 * if not they are asked to chose again.
+	 * @return returnValue the chosen table that exists in table tables.
+	 */
 
 	public Table chooseTable() {
 		String chosenTable = JOptionPane.showInputDialog("Choose a table.\nCurrently existing tables: \n"

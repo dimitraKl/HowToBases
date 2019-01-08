@@ -4,8 +4,23 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+/**
+ *Creates a menu of choices to manage the Database.
+ * @author annas
+ */
+
 public class Menu {
 	
+	/**
+	 * /**
+	 * The menu of processing choices for myDataBase.
+	 * <p>
+	 * Displays the menu from which the user can choose to create a new database or edit an 
+	 * existing database using CSV file.
+	 * Makes sure choice is 1 or 2.
+	 * @return choice the number of user's choice.
+	 */
+
 	public static int chooseDataBaseMenu() {
 
 		JRadioButton button1 = new JRadioButton("Create a new Data Base.");
@@ -25,6 +40,16 @@ public class Menu {
 		}
 		return choice;
 	}
+	
+	/**
+	 * The menu of processing choices for allData.
+	 * <p>
+	 * Displays the menu from which the user can choose to
+	 * add, delete or edit an element of allData.
+	 * Makes sure choice is 1,2 or 3.
+	 * Transfers the categoriesNames table to other methods or classes.
+	 * @return choice the number of user's choice.
+	 */
 
 	public static int tablesMenu() {
 	
@@ -55,7 +80,17 @@ public class Menu {
 
 	    return choice;
 	}
-
+	
+	/**
+	 * The menu of processing choices for allData.
+	 * <p>
+	 * Displays the menu from which the user can choose to
+	 * add, delete or edit an element of allData.
+	 * Makes sure choice is 1,2 or 3.
+	 * Transfers the categoriesNames table to other methods or classes.
+	 * @return choice the number of user's choice.
+	 */
+	
 	public static int dataMenu() {
 
 	    JRadioButton button1 = new JRadioButton("Add an element to this table. \n");
@@ -86,6 +121,16 @@ public class Menu {
 	    return choice;
 
 	}
+	
+	/**
+	 * The menu of processing choices for dataByColumn.
+	 * <p>
+	 * Displays the menu from which the user can choose to edit or display
+	 * an element of dataByColumn.
+	 * Makes sure choice is 1 or 2.
+	 * Transfers the categoriesNames table to other methods or classes.
+	 * @return choice the number of user's choice.
+	 */
 
 	public static int dataByColumnMenu() {
 

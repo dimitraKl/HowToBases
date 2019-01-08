@@ -3,6 +3,12 @@ package gr.aueb.dmst.HowToBases;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
+/**
+ * Creates and manages Table.
+ * Creates and initializes the name of the table, the names of the categories, the array list
+ * allData and the name of the reference point of array list allData.
+ * @author annas
+ */
 public class Table {
 
 	private String tableName;
@@ -45,12 +51,25 @@ public class Table {
 	public Table() {
 
 	}
+	
+	/**
+	 * Constructor for class Table.
+	 * @param tableName the name of the table .
+	 * @param categoriesNames the names of the categories of tables.
+	 */
 
 	public Table(String tableName, String[] categoriesNames) {
 		this.tableName = tableName;
 		this.categoriesNames = categoriesNames;
 		this.referencePointName = this.askForReferencePoint(this.categoriesNames);
 	}
+	
+	/**
+	 * Constructor for class Table.
+	 * @param tableName the name of the table .
+	 * @param categoriesNames the names of the categories of tables.
+	 * @param allData an array list with the categories of each table of tables.
+	 */
 
 	public Table(String tableName, String[] categoriesNames, String referencePointName, ArrayList<Data> allData) {
 		this.tableName = tableName;
@@ -58,6 +77,11 @@ public class Table {
 		this.referencePointName = referencePointName;
 		this.allData = new ArrayList<Data>(allData);
 	}
+	
+	/**
+	 * Asks the user to give a name to the table.
+	 * @return tableName the name of the table.
+	 */
 
 	public String askForName() {
 		
@@ -69,7 +93,12 @@ public class Table {
 		
 		return tableName;
 	}
-
+	
+	/**
+	 * Creates table categoriesNames which includes the names of the categories of allData.
+	 * @return categoriesNames the table with the names of the categories of allData.
+	 */
+	
 	public String[] askForCategories() {
 		
 		String catNumber = JOptionPane.showInputDialog(null,"How many categories would you like?");
@@ -93,6 +122,15 @@ public class Table {
 		}
 		return categoriesNames;
 	}
+	
+	/**
+	 * Asks the user to choose a category as a reference point.
+	 * Compares the name of the reference point with each of the categories 
+	 * names in order to find and return its index in the categoriesNames table.
+	 * If they are equal, the for loop stops, if not they are asked to choose again.
+	 * @param categoriesNames the table with the names of the categories of Data.
+	 * @return referencePointName the chosen category name that exists in table categoriesNames. 
+	 */
 
 	public String askForReferencePoint(String[] categoriesNames) {
 		String referencePointName = JOptionPane.showInputDialog(null,
@@ -122,6 +160,10 @@ public class Table {
 
 		return referencePointName;
 	}
+	
+	/**
+	 * Calls class Menu and manages the user's choice on array list allData.
+	 */
 
 	public void chooseDataFunction() {
 		int choice = Menu.dataMenu();
@@ -141,6 +183,13 @@ public class Table {
 	    		break;
 	    }
 	}
+	
+	/**
+	 * Asks the user to chose an element from allData.
+	 * If the choice is equal to an element in dataByColumn, it returns the element.
+	 * If not, they are asked to chose again.
+	 * @return returnValue the chosen element of array list allData.
+	 */
 
 	public Data chooseData() {
 		String chosenData = JOptionPane.showInputDialog("Choose an element of data.\n"

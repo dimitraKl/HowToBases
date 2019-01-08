@@ -4,7 +4,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 
+/**
+ * Includes all the functions for tables and allData.
+ * @author annas
+ */
+
 public class Functions {
+	
+	/**
+	 * Adds a table to tables.
+	 * @param tables a table with tables of the database.
+	 * @return tables a table with tables of the database.
+	 */
 
 	public ArrayList<Table> addTable(ArrayList<Table> tables) {
 		Table t = new Table();
@@ -15,6 +26,14 @@ public class Functions {
 				newTable.getCategoriesNames()));
 		return tables;
 	}
+	
+	/**
+	 * Adds a table to allData.
+	 * @param allData an array list with the categories of each table of tables.
+	 * @param referencePointName the name of point of reference of allData. 
+	 * @param categoriesNames a table with the names of the categories of array list allData.
+	 * @return allData an array list with the categories of each table of tables.
+	 */
 
 	public ArrayList<Data> addData(ArrayList<Data> allData, String referencePointName, String[] categoriesNames) {
 		Data d = new Data();
@@ -24,6 +43,13 @@ public class Functions {
 		allData.add(newData);
 		return allData;
 	}
+	
+	/**
+	 * Deletes a table from allData.
+	 * @param allData an array list with the categories of each table of tables.
+	 * @param givenData a table that is to be deleted from allData.
+	 * @return allData an array list with the categories of each table of tables.
+	 */
 
 	public ArrayList<Data> deleteData(ArrayList<Data> allData, Data givenData) {
 		String choice = JOptionPane.showInputDialog("Are you sure you want to delete this element?\n"
@@ -58,6 +84,13 @@ public class Functions {
 		}
 		return allData;
 	}
+	
+	/**
+	 * Deletes a table from tables.
+	 * @param dataBase the user's database.
+	 * @param givenTable a table that is to be deleted from tables.
+	 * @return dataBase the user's database.
+	 */
 
 	public ArrayList<Table> deleteTable(ArrayList<Table> dataBase, Table givenTable ) {
 		String choice = JOptionPane.showInputDialog("You have chosen to delete the table "
@@ -93,6 +126,13 @@ public class Functions {
 		return dataBase;
 	}
 	
+	/**
+	 * Edits an element of dataByColumn.
+	 * @param dataByColumn a table with elements of each category of tables.
+	 * @param givenPosition the index of the element that is to be changed.
+	 * @return dataByColumn a table with elements of each category of tables.
+	 */
+	
 	public String[] editData(String[] dataByColumn, int givenPosition) {
 		String newElement = JOptionPane.showInputDialog("Change element " 
 				+ dataByColumn[givenPosition] + " to : \n (Insert the new name)");
@@ -104,6 +144,11 @@ public class Functions {
 		JOptionPane.showMessageDialog(null,"Changes have been successfully made.");
 		return dataByColumn;	
 	}
+	
+	/**
+	 * Displays tables.
+	 * @param a an array list type Table.
+	 */
 
 	public void toDisplayTable(ArrayList<Table> a) {
 		String s = "";
@@ -112,6 +157,11 @@ public class Functions {
 		}
 		JOptionPane.showMessageDialog(null, s);
 	}
+	
+	/**
+	 * Displays allData.
+	 * @param a an array list type Data.
+	 */
 
 	public void toDisplayData(ArrayList<Data> a) {
 		String s = "";
